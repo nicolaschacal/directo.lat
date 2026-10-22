@@ -23,6 +23,12 @@ function clean(value, max = 500) {
   return String(value ?? "").trim().slice(0, max);
 }
 
+function cleanBaseUrl(value) {
+  let base = clean(value, 300);
+  while (base.endsWith("/")) base = base.slice(0, -1);
+  return base;
+}
+
 function hint(secret) {
   if (!secret) return "";
   const text = String(secret);
@@ -96,14 +102,14 @@ function sanitizeSection(section, values, current) {
     if (values.apiKey) next.apiKey = encrypt(clean(values.apiKey, 400));
     if (values.clearApiKey) delete next.apiKey;
     next.model = clean(values.model, 160) || PROVIDER_DEFAULTS[provider].model || undefined;
-    next.baseUrl = clean(values.baseUrl, 300).replace(/\\/$/, "");
+    next.baseUrl = cleanBaseUrl(values.baseUrl);
     const fallbackProvider = clean(values.fallbackProvider, 30);
     if (fallbackProvider && !PROVIDER_DEFAULTS[fallbackProvider]) throw new Error("Proveedor secundario no válido.");
     next.fallbackProvider = fallbackProvider;
     if (values.fallbackApiKey) next.fallbackApiKey = encrypt(clean(values.fallbackApiKey, 400));
     if (values.clearFallbackApiKey) delete next.fallbackApiKey;
     next.fallbackModel = clean(values.fallbackModel, 160) || (fallbackProvider ? PROVIDER_DEFAULTS[fallbackProvider].model : "") || undefined;
-    next.fallbackBaseUrl = clean(values.fallbackBaseUrl, 300).replace(/\\/$/, "");
+    next.fallbackBaseUrl = cleanBaseUrl(values.fallbackBaseUrl);
   }
 
   if (section === "email") {
