@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#202c33" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Asistente virtual: conoce propuestas y conversa con el equipo de tu zona.">
+  <title>Asistente</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/whatsapp-business-profile.css">
+  <link rel="stylesheet" href="css/messenger-theme.css">
+  <link rel="stylesheet" href="css/chat-components.css">
+</head>
+<body>
+  <main class="chat-app app-booting" aria-label="Chat">
+    <header class="chat-header">
+      <button id="business-profile-trigger" class="contact contact-button" type="button" aria-label="Ver información del perfil">
+        <div class="avatar-wrap" aria-hidden="true">
+          <img class="avatar" data-brand-logo src="assets/logo-default.svg" alt="">
+          <span class="online-dot"></span>
+        </div>
+
+        <div class="contact-copy">
+          <h1>
+            <span id="header-profile-name">Asistente</span>
+            <span class="institutional-badge" data-profile-badge aria-label="Perfil oficial" title="Perfil oficial">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.3 3.2 12 1.8l2.7 1.4 3-.2 1.4 2.7 2.5 1.6-.2 3 1.4 2.7-1.8 2.4-.5 3-3 .7-2.1 2.1-2.8-1-2.8 1-2.1-2.1-3-.7-.5-3L2.4 13l1.4-2.7-.2-3 2.5-1.6L7.5 3l1.8.2Z"/><path d="m8.2 12.2 2.4 2.4 5.3-5.4"/></svg>
+            </span>
+          </h1>
+          <p id="contact-status" class="contact-status">Conectando…</p>
+        </div>
+      </button>
+
+      <div class="header-actions" aria-label="Acciones">
+        <button id="contact-header" class="header-action header-action--primary" type="button" title="Que me contacte el coordinador de mi zona">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.5 4.8 5.9c-.8.8-.9 2-.4 3 2.4 4.7 6 8.3 10.7 10.7 1 .5 2.2.4 3-.4l2.4-2.4-4-4-2 2c-.4.4-1 .5-1.5.2-1.7-1-3-2.3-4-4-.3-.5-.2-1.1.2-1.5l2-2-4-4Z"/></svg>
+          <span>Que me contacten</span>
+        </button>
+
+        <a id="header-website-link" class="header-action icon-only" href="#" target="_blank" rel="noreferrer" title="Sitio web" aria-label="Sitio web">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+        </a>
+
+        <button id="new-chat" class="header-action icon-only" type="button" title="Nueva conversación" aria-label="Nueva conversación">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </button>
+      </div>
+    </header>
+
+
+    <section id="business-profile" class="business-profile" hidden aria-label="Información del perfil">
+      <div class="business-profile-shell">
+        <header class="business-profile-topbar">
+          <button id="business-profile-back" class="profile-back" type="button" aria-label="Volver al chat">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+          </button>
+          <strong>Información</strong>
+          <span class="profile-topbar-spacer" aria-hidden="true"></span>
+        </header>
+
+        <div class="business-profile-scroll">
+          <section class="profile-hero">
+            <div class="profile-cover" aria-hidden="true">
+              <img class="profile-cover-logo" data-brand-logo src="assets/logo-default.svg" alt="">
+            </div>
+
+            <div class="profile-avatar-large">
+              <img data-brand-logo src="assets/logo-default.svg" alt="Logo">
+            </div>
+
+            <h2>
+              <span id="business-profile-name">Asistente</span>
+              <span class="institutional-badge institutional-badge--profile" data-profile-badge aria-label="Perfil oficial" title="Perfil oficial">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.3 3.2 12 1.8l2.7 1.4 3-.2 1.4 2.7 2.5 1.6-.2 3 1.4 2.7-1.8 2.4-.5 3-3 .7-2.1 2.1-2.8-1-2.8 1-2.1-2.1-3-.7-.5-3L2.4 13l1.4-2.7-.2-3 2.5-1.6L7.5 3l1.8.2Z"/><path d="m8.2 12.2 2.4 2.4 5.3-5.4"/></svg>
+              </span>
+            </h2>
+            <p><span id="business-profile-category">Dirigente político</span></p>
+          </section>
+
+          <section class="profile-actions" aria-label="Acciones">
+            <a id="business-call-action" class="profile-action" href="#">
+              <span class="profile-action-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.5 4.8 5.9c-.8.8-.9 2-.4 3 2.4 4.7 6 8.3 10.7 10.7 1 .5 2.2.4 3-.4l2.4-2.4-4-4-2 2c-.4.4-1 .5-1.5.2-1.7-1-3-2.3-4-4-.3-.5-.2-1.1.2-1.5l2-2-4-4Z"/></svg>
+              </span>
+              <span>Llamar</span>
+            </a>
+
+            <button id="business-share" class="profile-action" type="button">
+              <span class="profile-action-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12 16 6M8 12l8 6"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="5" r="2.5"/><circle cx="18" cy="19" r="2.5"/></svg>
+              </span>
+              <span>Compartir</span>
+            </button>
+
+            <a id="business-website-action" class="profile-action" href="#" target="_blank" rel="noreferrer">
+              <span class="profile-action-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+              </span>
+              <span>Sitio web</span>
+            </a>
+          </section>
+
+          <section class="profile-info-card">
+            <div class="profile-info-row profile-hours">
+              <div>
+                <span id="business-open-status" class="profile-open-status">Horario de atención</span>
+                <strong id="business-hours-text">8:00 a 20:00</strong>
+              </div>
+              <small id="business-days-text">Lunes a sábado</small>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-kicker">Categoría</span>
+              <strong id="business-category-text">Dirigente político</strong>
+            </div>
+
+            <div class="profile-info-row">
+              <span class="profile-info-kicker">Acerca de</span>
+              <strong id="business-description-text"></strong>
+              <span id="business-status-text"></span>
+            </div>
+          </section>
+
+          <section class="profile-info-card profile-contact-card">
+            <a id="business-map-link" class="profile-contact-row" href="#" target="_blank" rel="noreferrer">
+              <span class="profile-contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </span>
+              <span><strong id="business-address-1"></strong><small id="business-address-2"></small></span>
+              <span class="profile-chevron">›</span>
+            </a>
+
+            <a id="business-phone-link" class="profile-contact-row" href="#">
+              <span class="profile-contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 3.5 4.8 5.9c-.8.8-.9 2-.4 3 2.4 4.7 6 8.3 10.7 10.7 1 .5 2.2.4 3-.4l2.4-2.4-4-4-2 2c-.4.4-1 .5-1.5.2-1.7-1-3-2.3-4-4-.3-.5-.2-1.1.2-1.5l2-2-4-4Z"/></svg>
+              </span>
+              <span><strong id="business-phone-display"></strong><small>Teléfono</small></span>
+              <span class="profile-chevron">›</span>
+            </a>
+
+            <a id="business-email-link" class="profile-contact-row" href="#">
+              <span class="profile-contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+              </span>
+              <span><strong id="business-email-display"></strong><small>Correo electrónico</small></span>
+              <span class="profile-chevron">›</span>
+            </a>
+
+            <a id="business-website-link" class="profile-contact-row" href="#" target="_blank" rel="noreferrer">
+              <span class="profile-contact-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+              </span>
+              <span><strong id="business-website-display"></strong><small>Sitio web</small></span>
+              <span class="profile-chevron">›</span>
+            </a>
+          </section>
+
+          <section class="profile-info-card">
+            <a id="business-instagram-link" class="profile-social-row" href="#" target="_blank" rel="noreferrer">
+              <span class="profile-social-mark">◎</span>
+              <span><strong id="business-instagram-display"></strong><small>Instagram</small></span>
+              <span class="profile-chevron">›</span>
+            </a>
+            <a id="business-facebook-link" class="profile-social-row" href="#" target="_blank" rel="noreferrer">
+              <span class="profile-social-mark">f</span>
+              <span><strong id="business-facebook-display"></strong><small>Facebook</small></span>
+              <span class="profile-chevron">›</span>
+            </a>
+          </section>
+
+          <p class="profile-disclaimer">Asistente virtual con información oficial del equipo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="messages" class="messages" aria-live="polite" aria-label="Conversación">
+      <div class="conversation">
+        <div id="conversation-loading" class="conversation-loading" role="status" aria-live="polite">
+          <div class="conversation-loading-card">
+            <div class="conversation-loading-dots" aria-hidden="true">
+              <span></span><span></span><span></span>
+            </div>
+            <span>Cargando tu conversación…</span>
+          </div>
+        </div>
+
+        <div class="welcome-card" hidden>
+          <div class="day-divider"><span>Hoy</span></div>
+          <div class="message-row assistant">
+            <div class="message-stack">
+              <div class="message assistant-message intro-message"><span class="message-text" id="welcome-text">¡Hola! 👋 Soy el asistente virtual.
+
+Puedo contarte quién es, qué propone y cómo puede ayudar a tu comunidad. También puedes contarme qué está pasando en tu zona.</span><span class="message-meta"><span class="message-time"></span></span></div>
+            </div>
+          </div>
+
+          <div class="privacy-notice" id="privacy-notice" role="note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 9.5 4-1.2 7-5 7-9.5V6l-7-3Z"/><path d="M12 9v4M12 16h.01"/></svg>
+            <span id="privacy-notice-text">Por tu seguridad, no escribas tu cédula, dirección ni otros datos personales en el chat.</span>
+          </div>
+
+          <div class="location-section" id="location-section">
+            <p class="quick-label">¿Desde dónde nos escribes? <small>(opcional)</small></p>
+            <form class="location-form" id="location-form">
+              <select id="location-state" aria-label="Estado"><option value="">Estado</option></select>
+              <select id="location-zone" aria-label="Municipio o localidad" hidden><option value="">Municipio o localidad</option></select>
+              <input id="location-other" type="text" maxlength="120" placeholder="Escribe tu municipio o localidad" aria-label="Municipio o localidad" hidden>
+              <button type="submit" class="location-save" hidden>Listo</button>
+            </form>
+            <p class="location-chosen" id="location-chosen" hidden></p>
+          </div>
+
+          <div class="quick-section">
+            <p class="quick-label">¿Qué te gustaría saber?</p>
+            <div class="quick-grid" aria-label="Preguntas sugeridas">
+              <button class="quick-question" type="button" data-question="¿Quién es y cuál es su trayectoria?">
+                <span>¿Quién es?</span><span aria-hidden="true">›</span>
+              </button>
+              <button class="quick-question" type="button" data-question="¿Cuáles son sus propuestas?">
+                <span>Sus propuestas</span><span aria-hidden="true">›</span>
+              </button>
+              <button class="quick-question" type="button" data-question="¿Qué puede hacer por mi comunidad?">
+                <span>¿Qué puede hacer por mi comunidad?</span><span aria-hidden="true">›</span>
+              </button>
+              <button class="quick-question quick-question--primary" type="button" data-action="contact">
+                <span>Quiero que me contacte el coordinador de mi zona</span><span aria-hidden="true">›</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="typing-indicator" class="typing-indicator" hidden aria-live="polite">
+      <div class="typing-bubble" aria-label="El asistente está escribiendo">
+        <span></span><span></span><span></span>
+      </div>
+      <small>escribiendo…</small>
+    </div>
+
+    <footer class="composer">
+      <form id="chat-form" class="chat-form">
+        <label class="sr-only" for="message-input">Escribe tu mensaje</label>
+        <textarea
+          id="message-input"
+          rows="1"
+          maxlength="900"
+          placeholder="Escribe un mensaje"
+          enterkeyhint="send"
+          autocomplete="off"
+          required
+        ></textarea>
+
+        <button id="send-button" class="send-button" type="submit" aria-label="Enviar mensaje">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 4 17 8-17 8 3-8-3-8Z"/><path d="M7 12h14"/></svg>
+        </button>
+      </form>
+
+      <div class="composer-foot">
+        <span>Asistente virtual · no compartas datos sensibles</span>
+        <a id="footer-website-link" href="#" target="_blank" rel="noreferrer"></a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="js/app.js"></script>
+  <script src="js/whatsapp-business-profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+{
+  "name": "escucha",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Asistente con IA para dirigentes políticos: chat con la gente, contactos por localidad para coordinadores y escucha territorial.",
+  "scripts": {
+    "db:migrate": "node scripts/migrate.js",
+    "db:create-admin": "node scripts/create-admin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^7.0.10",
+    "pg": "^8.16.3",
+    "express": "^5.1.0",
+    "dotenv": "^17.2.3"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}

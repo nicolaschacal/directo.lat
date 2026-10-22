@@ -1,0 +1,328 @@
+/* Interactive chat components, modelled on WhatsApp Business interactive
+   messages: content inside the bubble, actions as full-width buttons at the
+   foot of the bubble. Color has meaning only: accent = action/selection,
+   green = confirmed, red = destructive. Tokens come from messenger-theme.css. */
+
+:root { --bubble-max: min(72%, 560px); }
+@media (max-width: 680px) { :root { --bubble-max: 86%; } }
+@media (max-width: 390px) { :root { --bubble-max: 90%; } }
+/* Text bubbles and cards (slots, bookings) share one max width */
+.message-stack, .message-row > .message { max-width: var(--bubble-max) !important; }
+.custom-card { width: var(--bubble-max) !important; max-width: var(--bubble-max) !important; }
+.custom-card > .message { width: 100%; padding: 9px 10px 8px !important; white-space: normal !important; overflow-wrap: normal !important; }
+
+.ui-icon {
+  width: 18px; height: 18px; flex: 0 0 auto;
+  fill: none; stroke: currentColor; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* ---------- Buttons ---------- */
+.chat-btn {
+  min-height: 44px;
+  padding: 0 16px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  border: 0 !important;
+  border-radius: 10px;
+  font: inherit; font-size: 15px; font-weight: 600;
+  cursor: pointer;
+  transition: background-color .15s ease, opacity .15s ease;
+}
+.chat-btn:disabled { opacity: .5; cursor: default; }
+.chat-btn--primary { color: #fff !important; background: var(--accent-solid) !important; }
+.chat-btn--primary:hover { background: var(--accent-solid-hover) !important; }
+.chat-btn--primary:active { background: var(--accent-solid-active) !important; }
+
+.link-button {
+  padding: 4px 2px;
+  border: 0; background: none;
+  color: var(--accent);
+  font: inherit; font-size: 14px; font-weight: 600;
+  cursor: pointer;
+}
+.link-button:hover { text-decoration: underline; }
+
+/* Action buttons inside a bubble: filled, clearly tappable */
+.bubble-actions {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+.bubble-actions--pair { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.bubble-actions--pair > :last-child { grid-column: 1 / -1; }
+.bubble-actions--split { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+.bubble-action {
+  min-height: 44px;
+  padding: 0 10px;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  border: 0;
+  border-radius: 10px;
+  color: var(--accent) !important;
+  background: var(--accent-soft);
+  font: inherit; font-size: 14.5px; font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: background-color .12s ease, transform .08s ease;
+}
+.bubble-action:hover { background: var(--accent-soft-hover); }
+.bubble-action:active { transform: scale(.98); }
+.bubble-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.bubble-action .ui-icon { width: 17px; height: 17px; }
+.bubble-action--danger { color: var(--danger) !important; background: var(--danger-soft); }
+.bubble-action--danger:hover { background: var(--danger-soft-hover); }
+.bubble-action--danger-solid { color: #fff !important; background: #d6452f; }
+.bubble-action--danger-solid:hover { background: #c23b26; }
+.custom-card .message-meta--block { margin: 4px -1px 0 0 !important; }
+
+/* ---------- Slot picker ---------- */
+.slot-picker { display: grid; gap: 10px; padding-top: 2px; }
+
+.slot-chips {
+  display: flex; gap: 6px;
+  margin: 0 -10px; padding: 0 10px 2px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: 10px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.slot-chips::-webkit-scrollbar { display: none; }
+.slot-chip {
+  flex: 0 0 auto;
+  width: 50px; height: 56px;
+  display: grid; place-items: center; align-content: center; gap: 0;
+  border: 0;
+  border-radius: 12px;
+  color: var(--text);
+  background: var(--field-bg);
+  scroll-snap-align: start;
+  cursor: pointer;
+  transition: background-color .15s ease, color .15s ease;
+}
+.slot-chip:hover { background: var(--group-line); }
+.slot-chip-dow { font-size: 12px; color: var(--text-2); }
+.slot-chip-num { font-size: 19px; font-weight: 600; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.slot-chip.is-active { color: #fff; background: var(--accent-solid); }
+.slot-chip.is-active .slot-chip-dow { color: rgba(255,255,255,.78); }
+
+.slot-day-label { margin: 0; font-size: 14px; font-weight: 600; color: var(--text); }
+
+.slot-times {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.slot-time {
+  height: 40px;
+  border: 1px solid var(--chip-border);
+  border-radius: 10px;
+  color: var(--accent);
+  background: transparent;
+  font: inherit; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums;
+  cursor: pointer;
+  transition: background-color .12s ease, border-color .12s ease;
+}
+.slot-time:hover { background: var(--accent-soft); border-color: transparent; }
+.slot-time.is-selected { color: #fff; background: var(--accent-solid); border-color: transparent; }
+.slot-picker.is-done .slot-chip:not(.is-active),
+.slot-picker.is-done .slot-time:not(.is-selected) { opacity: .4; }
+.slot-picker button:disabled { cursor: default; }
+
+/* ---------- Booking form ---------- */
+.booking-form-card { display: grid; gap: 12px; }
+
+.booking-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.booking-head-copy { display: grid; gap: 2px; min-width: 0; }
+.booking-head .link-button { flex: 0 0 auto; white-space: nowrap; margin-top: -2px; }
+.booking-head strong { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.booking-head small { font-size: 13px; color: var(--text-2); line-height: 1.35; }
+
+.booking-form { display: grid !important; grid-template-columns: minmax(0,1fr) !important; gap: 10px !important; }
+.booking-form > * { grid-column: 1 / -1 !important; margin: 0 !important; }
+
+/* Grouped fields (inset list): one container, hairlines between rows */
+.field-group {
+  display: grid;
+  border-radius: 10px;
+  background: var(--field-bg);
+  overflow: hidden;
+}
+.booking-form .field {
+  position: relative;
+  min-height: 48px;
+  display: flex !important; flex-direction: column; justify-content: center;
+  gap: 0 !important;
+  padding: 6px 12px !important;
+  grid-column: auto !important;
+  cursor: text;
+}
+.booking-form .field + .field,
+.booking-more[open] > summary + .field { border-top: 1px solid var(--group-line); }
+.booking-form .field > span {
+  font-size: 12px !important; font-weight: 500 !important; line-height: 1.3;
+  color: var(--text-2) !important;
+  transition: color .12s ease;
+}
+.booking-form .field:focus-within > span { color: var(--accent) !important; }
+/* Floating label: the placeholder carries the label until there is a value */
+.booking-form .field:has(input:placeholder-shown) > span,
+.booking-form .field:has(textarea:placeholder-shown) > span { display: none; }
+.booking-form .field input::placeholder,
+.booking-form .field textarea::placeholder { color: var(--text-2); opacity: 1; }
+
+.booking-form .field input,
+.booking-form .field textarea {
+  width: 100%; min-width: 0;
+  min-height: 24px !important; height: auto;
+  padding: 0 !important;
+  border: 0 !important; border-radius: 0 !important;
+  color: var(--text) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none;
+  font: inherit !important; font-size: 16px !important; font-weight: 400 !important; line-height: 24px !important;
+  -webkit-appearance: none; appearance: none;
+}
+.booking-form .field textarea { min-height: 24px !important; padding-top: 6px !important; resize: none; field-sizing: content; max-height: 120px; }
+.booking-form .field input[type="date"] { display: block; min-height: 24px !important; }
+.booking-form .field input[type="date"]::-webkit-date-and-time-value { text-align: left; }
+.booking-form .field input[type="date"]::-webkit-calendar-picker-indicator { opacity: .5; }
+
+/* Optional fields: a collapsed row in its own group; opens without gaps */
+.booking-more > summary {
+  list-style: none;
+  min-height: 44px;
+  padding: 0 12px;
+  display: flex; align-items: center; gap: 8px;
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+.booking-more > summary::-webkit-details-marker { display: none; }
+.booking-more > summary small { margin-left: auto; font-size: 13px; color: var(--text-2); }
+.booking-more-chevron { width: 16px; height: 16px; color: var(--text-3); transition: transform .15s ease; }
+.booking-more[open] .booking-more-chevron { transform: rotate(90deg); }
+
+.booking-form .consent-row {
+  display: grid !important;
+  grid-template-columns: 20px 1fr !important;
+  align-items: start;
+  gap: 10px !important;
+  padding: 0 2px;
+  font-size: 13px !important; font-weight: 400 !important;
+  line-height: 1.4;
+  color: var(--text-2) !important;
+  cursor: pointer;
+}
+.booking-form .consent-row input {
+  width: 18px; height: 18px; min-height: 0 !important; margin: 1px 0 0 !important;
+  accent-color: var(--accent-solid);
+}
+.booking-form .consent-row span { color: var(--text-2) !important; font-weight: 400 !important; }
+.booking-submit { width: 100%; }
+
+.booking-error {
+  padding: 9px 12px !important;
+  border: 0 !important;
+  border-radius: 10px !important;
+  color: var(--danger) !important;
+  background: var(--danger-soft) !important;
+  font-size: 13px !important;
+}
+
+.booking-success { display: grid !important; gap: 2px; }
+.booking-success p:last-child { margin: 0; font-size: 15px; color: var(--text); }
+
+/* ---------- Appointment card ---------- */
+.appointment-card { display: block !important; }
+.appt-status {
+  margin: 0 0 6px;
+  display: flex; align-items: center; gap: 5px;
+  color: var(--online);
+  font-size: 13px; font-weight: 600;
+}
+.appt-status .ui-icon { width: 16px; height: 16px; stroke-width: 2.4; }
+.appt-date { margin: 0; font-size: 17px; font-weight: 600; line-height: 1.25; color: var(--text); }
+.appt-time { margin: 1px 0 0; font-size: 15px; color: var(--text); font-variant-numeric: tabular-nums; }
+
+.appt-details { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.appt-details li {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 14px; color: var(--text-2);
+}
+.appt-details .ui-icon { width: 16px; height: 16px; }
+
+/* ---------- Cancel confirmation ---------- */
+.cancel-confirmation { display: block !important; }
+.cancel-confirmation p { margin: 0; color: var(--text) !important; font-size: 15px !important; line-height: 1.4 !important; }
+
+/* ---------- Contact capture card ---------- */
+.contact-time { display: grid; gap: 6px; }
+.contact-time-label { font-size: 13px; font-weight: 600; color: var(--text-2); }
+.booking-form .contact-time .slot-times { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 6px; }
+.booking-form .contact-time .slot-time {
+  grid-column: auto !important;
+  min-height: 40px; height: auto; padding: 4px 6px;
+  border: 1px solid var(--chip-border) !important;
+  color: var(--accent) !important; background: transparent !important;
+  font-size: 13.5px; font-weight: 600; line-height: 1.15;
+}
+.booking-form .contact-time .slot-time:hover { background: var(--accent-soft) !important; }
+.booking-form .contact-time .slot-time.is-selected { color: #fff !important; background: var(--accent-solid) !important; border-color: transparent !important; }
+.contact-hint { margin: -2px 2px 0 !important; font-size: 12.5px; color: var(--text-2); }
+.brochure-card { display: grid; gap: 10px; }
+.brochure-title { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 15px; font-weight: 600; color: var(--text); }
+.brochure-title .ui-icon { width: 22px; height: 22px; flex: 0 0 auto; color: var(--accent); }
+.appt-status--cancelled { color: var(--text-2) !important; }
+.booking-action-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- Escucha: aviso de privacidad, localidad y selects ---------- */
+.booking-form .field[hidden],
+.booking-form .field:has(> select[hidden]),
+.booking-form .field:has(> input[hidden]) { display: none !important; }
+
+.booking-form .field select {
+  width: 100%; min-width: 0; min-height: 24px;
+  padding: 0; border: 0; background: transparent;
+  color: var(--text); font: inherit; font-size: 16px; line-height: 24px;
+  -webkit-appearance: none; appearance: none; outline: none;
+}
+.booking-form .field:has(select) > span { display: block; }
+
+.privacy-notice {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin: 10px auto 4px; max-width: 520px;
+  padding: 10px 12px; border-radius: 12px;
+  background: color-mix(in srgb, #f5b400 14%, var(--panel, #fff));
+  color: var(--text, #111); font-size: 13px; line-height: 1.4;
+}
+.privacy-notice svg { flex: none; width: 18px; height: 18px; margin-top: 1px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; opacity: .8; }
+
+.location-section { max-width: 520px; margin: 10px auto 0; }
+.location-section .quick-label small { font-weight: 400; opacity: .7; }
+.location-form { display: flex; flex-wrap: wrap; gap: 8px; }
+.location-form[hidden] { display: none; }
+.location-form select,
+.location-form input {
+  flex: 1 1 160px; min-width: 0; min-height: 40px;
+  padding: 8px 12px; border-radius: 10px;
+  border: 1px solid var(--group-line, rgba(0,0,0,.12));
+  background: var(--field-bg, #fff); color: var(--text, #111);
+  font: inherit; font-size: 15px;
+}
+.location-form [hidden] { display: none; }
+.location-save {
+  min-height: 40px; padding: 0 16px; border: 0; border-radius: 10px;
+  background: var(--accent, #1f7aec); color: #fff; font: inherit; font-weight: 600; cursor: pointer;
+}
+.location-chosen {
+  display: flex; align-items: center; gap: 6px; margin: 0;
+  font-size: 13.5px; color: var(--text-2, #555);
+}
+.location-chosen .ui-icon { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+.location-change {
+  margin-left: 4px; padding: 0; border: 0; background: none;
+  color: var(--accent, #1f7aec); font: inherit; font-weight: 600; cursor: pointer;
+}

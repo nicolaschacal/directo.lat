@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, interactive-widget=resizes-content">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#111b21" media="(prefers-color-scheme: dark)">
+  <title>Panel</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+  <!-- Login / first-run setup -->
+  <div id="auth-screen" class="auth-screen" hidden>
+    <div class="auth-card">
+      <div class="auth-brand">
+        <img class="auth-logo" src="/assets/logo-default.svg" alt="">
+        <div>
+          <strong data-brand-name>Panel</strong>
+          <span>Panel del equipo</span>
+        </div>
+      </div>
+
+      <form id="login-form" class="auth-form" hidden>
+        <h1>Iniciar sesión</h1>
+        <label class="field"><span>Correo</span><input name="email" type="email" autocomplete="username" required></label>
+        <label class="field"><span>Contraseña</span><input name="password" type="password" autocomplete="current-password" required></label>
+        <p id="login-error" class="form-error" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+      </form>
+
+      <form id="setup-form" class="auth-form" hidden>
+        <h1>Configuración inicial</h1>
+        <p class="muted">Crea la cuenta de administrador. Después vas a poder completar el perfil, cargar localidades y coordinadores, y conectar la IA desde Configuración.</p>
+        <label class="field"><span>Nombre del dirigente o campaña</span><input name="businessName" required maxlength="160" placeholder="Ej. Juan Pérez"></label>
+        <label class="field"><span>Tu nombre</span><input name="name" autocomplete="name" required maxlength="160"></label>
+        <label class="field"><span>Correo</span><input name="email" type="email" autocomplete="username" required></label>
+        <label class="field"><span>Contraseña</span><input name="password" type="password" autocomplete="new-password" minlength="10" required placeholder="Mínimo 10 caracteres"></label>
+        <p id="setup-error" class="form-error" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Crear cuenta y empezar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- App -->
+  <div id="crm-app" class="app" hidden>
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <img class="brand-logo" src="/assets/logo-default.svg" alt="">
+        <div class="brand-copy">
+          <strong data-brand-name>Panel</strong>
+          <span>Panel del equipo</span>
+        </div>
+      </div>
+
+      <nav id="nav" class="nav" aria-label="Secciones">
+        <button class="nav-item is-active" data-view="overview"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM4 20h6v-3H4zM14 4v3h6V4z"/></svg><span>Resumen</span></button>
+        <button class="nav-item" data-view="pipeline"><svg viewBox="0 0 24 24"><path d="M4 5h4v14H4zM10 5h4v9h-4zM16 5h4v6h-4z"/></svg><span>Contactos</span></button>
+        <button class="nav-item" data-view="followups"><svg viewBox="0 0 24 24"><path d="M9 11.5 11 13.5l4-4"/><circle cx="12" cy="12" r="8.5"/></svg><span>Pendientes</span><span id="nav-followups-count" class="nav-count" hidden></span></button>
+        <button class="nav-item" data-view="territory"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Escucha territorial</span></button>
+        <button class="nav-item" data-view="inquiries"><svg viewBox="0 0 24 24"><path d="M5 5h14v10H10l-4 4v-4H5z"/></svg><span>Conversaciones</span></button>
+        <button class="nav-item" data-view="knowledge"><svg viewBox="0 0 24 24"><path d="M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z"/><path d="M12 6v14"/></svg><span>Base de conocimiento</span></button>
+        <button class="nav-item" data-view="settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg><span>Configuración</span><span id="nav-setup-dot" class="nav-dot" hidden></span></button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <a class="sidebar-link" href="/" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>
+          <span>Ver chat público</span>
+        </a>
+        <div class="user-row">
+          <span id="user-avatar" class="avatar-initials" aria-hidden="true"></span>
+          <span class="user-copy"><strong id="manager-name"></strong><small id="manager-role"></small></span>
+          <button id="logout-button" class="icon-btn" title="Cerrar sesión" aria-label="Cerrar sesión">
+            <svg viewBox="0 0 24 24"><path d="M15 4h3a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-3M10 17l-5-5 5-5M5 12h11"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+    <div id="sidebar-scrim" class="sidebar-scrim" hidden></div>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menu-button" class="icon-btn menu-btn" aria-label="Abrir menú">
+          <svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <h1 id="view-title">Resumen</h1>
+        <div class="topbar-actions">
+          <label class="search" id="search-wrap" hidden>
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>
+            <input id="lead-search" type="search" placeholder="Buscar por nombre, teléfono o tema">
+          </label>
+          <button id="refresh-button" class="icon-btn" title="Actualizar" aria-label="Actualizar">
+            <svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.6-4.5M4 4v4h4M4 13a8 8 0 0 0 14.6 4.5M20 20v-4h-4"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <section id="view" class="view" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <!-- Lead drawer -->
+  <div id="lead-modal" class="drawer-backdrop" hidden>
+    <section class="drawer" role="dialog" aria-modal="true" aria-label="Ficha del contacto">
+      <header class="drawer-head">
+        <h2 id="drawer-title">Contacto</h2>
+        <button id="close-lead" class="icon-btn" aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+      </header>
+      <div id="lead-detail" class="drawer-body"></div>
+    </section>
+  </div>
+
+  <!-- Generic dialog -->
+  <div id="dialog" class="dialog-backdrop" hidden>
+    <section class="dialog" role="dialog" aria-modal="true">
+      <div id="dialog-body"></div>
+    </section>
+  </div>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

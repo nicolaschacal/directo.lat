@@ -1,0 +1,318 @@
+/* Messenger theme: WhatsApp / Telegram feel, light & dark (follows the OS).
+   Loaded last; overrides colors and chat chrome from styles.css. */
+
+:root {
+  color-scheme: light;
+  --header-bg: #ffffff;
+  --header-text: #111b21;
+  --font-ui: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --app-bg: #e5e7eb;
+  --chat-bg: #efeae2;
+  --doodle: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22340%22 height=%22340%22 viewBox=%220 0 340 340%22 fill=%22none%22 stroke=%22%235b4a32%22 stroke-opacity=%22.095%22 stroke-width=%221.35%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cg transform=%22translate%282.6 6.5%29 rotate%28-6 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%2840.0 3.7%29 rotate%28-25 11.0 11.0%29 scale%280.92%29%22%3E%3Cpath d=%22M4 5h16v10H10l-4 4v-4H4z%22/%3E%3C/g%3E%3Cg transform=%22translate%2874.1 3.7%29 rotate%28-15 11.1 11.1%29 scale%280.93%29%22%3E%3Cpath d=%22M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z%22/%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.3 5.9%29 rotate%285 11.5 11.5%29 scale%280.96%29%22%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222%22/%3E%3Cpath d=%22M12 8c-1-4 3-4 2 0M14 10c4-1 4 3 0 2M12 12c1 4-3 4-2 0M10 10c-4 1-4-3 0-2%22/%3E%3Cpath d=%22M12 12v9M12 17c-2 0-3-1-4-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28142.6 3.8%29 rotate%28-25 12.2 12.2%29 scale%281.02%29%22%3E%3Cpath d=%22M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z%22/%3E%3Cpath d=%22M10 20.5a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28175.9 6.6%29 rotate%284 11.4 11.4%29 scale%280.95%29%22%3E%3Cpath d=%22M5 6h10v7H9l-3 3v-3H5z%22/%3E%3Cpath d=%22M15 9h4v6h-1v2.5L15.5 15H11v-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28208.9 5.8%29 rotate%288 11.4 11.4%29 scale%280.95%29%22%3E%3Cpath d=%22M4 5h16v10H10l-4 4v-4H4z%22/%3E%3C/g%3E%3Cg transform=%22translate%28243.6 5.8%29 rotate%287 11.4 11.4%29 scale%280.95%29%22%3E%3Ccircle cx=%226%22 cy=%2216%22 r=%223.5%22/%3E%3Ccircle cx=%2218%22 cy=%2216%22 r=%223.5%22/%3E%3Cpath d=%22M6 16l4-7h5l3 7M10 9l2 7h-6M14 6h2%22/%3E%3C/g%3E%3Cg transform=%22translate%28276.6 7.0%29 rotate%28-3 11.4 11.4%29 scale%280.95%29%22%3E%3Cpath d=%22M3 11 21 3l-6 18-3-7z%22/%3E%3Cpath d=%22m12 14 9-11%22/%3E%3C/g%3E%3Cg transform=%22translate%28312.5 5.7%29 rotate%28-11 10.5 10.5%29 scale%280.87%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%284.2 39.7%29 rotate%2827 10.9 10.9%29 scale%280.91%29%22%3E%3Cpath d=%22M12 21 4 6a14 14 0 0 1 16 0z%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%221%22/%3E%3Ccircle cx=%2214%22 cy=%2213%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%2838.1 41.2%29 rotate%28-1 10.6 10.6%29 scale%280.88%29%22%3E%3Cpath d=%22M3 6h18v12H3z%22/%3E%3Cpath d=%22m3 7 9 6 9-6%22/%3E%3C/g%3E%3Cg transform=%22translate%2874.0 41.5%29 rotate%28-8 11.0 11.0%29 scale%280.91%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%28106.9 39.9%29 rotate%2825 11.9 11.9%29 scale%280.99%29%22%3E%3Ccircle cx=%226%22 cy=%2216%22 r=%223.5%22/%3E%3Ccircle cx=%2218%22 cy=%2216%22 r=%223.5%22/%3E%3Cpath d=%22M6 16l4-7h5l3 7M10 9l2 7h-6M14 6h2%22/%3E%3C/g%3E%3Cg transform=%22translate%28143.0 38.4%29 rotate%2828 11.6 11.6%29 scale%280.96%29%22%3E%3Ccircle cx=%228%22 cy=%2212%22 r=%223.5%22/%3E%3Cpath d=%22M11.5 12H20M17 12v3M19.5 12v2%22/%3E%3C/g%3E%3Cg transform=%22translate%28177.2 38.3%29 rotate%28-9 12.0 12.0%29 scale%281.00%29%22%3E%3Cpath d=%22M12 4a8 8 0 1 0 0 16c1.5 0 1.8-1.2 1-2.2-.8-1-.4-2.3 1-2.3H17a3 3 0 0 0 3-3C20 7.5 16.4 4 12 4z%22/%3E%3Ccircle cx=%228%22 cy=%2211%22 r=%221%22/%3E%3Ccircle cx=%2211%22 cy=%228%22 r=%221%22/%3E%3Ccircle cx=%2215%22 cy=%228.5%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28208.7 40.9%29 rotate%28-16 11.3 11.3%29 scale%280.94%29%22%3E%3Cpath d=%22M9 17h6M10 20h4%22/%3E%3Cpath d=%22M8.5 14A6 6 0 1 1 15.5 14c-.8.8-1 1.6-1 3h-5c0-1.4-.2-2.2-1-3z%22/%3E%3C/g%3E%3Cg transform=%22translate%28240.5 38.7%29 scale%280.75%29%22%3E%3Cpath d=%22M9 13c1.5-2 4.5-2 6 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28277.8 40.4%29 rotate%28-20 10.9 10.9%29 scale%280.90%29%22%3E%3Cpath d=%22M3 12a9 9 0 0 1 18 0z%22/%3E%3Cpath d=%22M12 12v6a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28310.2 37.4%29 rotate%2810 12.2 12.2%29 scale%281.02%29%22%3E%3Cpath d=%22M4 20l1-4L16 5l3 3L8 19z%22/%3E%3Cpath d=%22m14 7 3 3%22/%3E%3C/g%3E%3Cg transform=%22translate%285.0 74.3%29 rotate%28-15 10.7 10.7%29 scale%280.89%29%22%3E%3Cpath d=%22M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z%22/%3E%3Cpath d=%22M12 6v14%22/%3E%3C/g%3E%3Cg transform=%22translate%2840.3 74.7%29 rotate%28-20 10.9 10.9%29 scale%280.91%29%22%3E%3Cpath d=%22M4 10h16v10H4zM3 7h18v3H3zM12 7v13%22/%3E%3Cpath d=%22M12 7c-2-4-6-3-4 0M12 7c2-4 6-3 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%2873.9 74.2%29 rotate%281 11.6 11.6%29 scale%280.97%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28110.1 74.7%29 rotate%2821 11.2 11.2%29 scale%280.93%29%22%3E%3Cpath d=%22M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z%22/%3E%3Cpath d=%22M10 20.5a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28139.9 74.6%29 rotate%28-6 11.1 11.1%29 scale%280.92%29%22%3E%3Cpath d=%22M3 12a9 9 0 0 1 18 0z%22/%3E%3Cpath d=%22M12 12v6a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28176.0 72.4%29 rotate%2827 10.7 10.7%29 scale%280.89%29%22%3E%3Cpath d=%22M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z%22/%3E%3Cpath d=%22M10 20.5a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28208.7 74.0%29 rotate%28-20 10.3 10.3%29 scale%280.86%29%22%3E%3Cpath d=%22M4 5h16v10H10l-4 4v-4H4z%22/%3E%3C/g%3E%3Cg transform=%22translate%28243.9 75.2%29 rotate%28-16 10.5 10.5%29 scale%280.87%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M4.5 9.5c4 1 11 1 15 0M4.5 14.5c4-1 11-1 15 0M12 4c-2.5 4-2.5 12 0 16%22/%3E%3C/g%3E%3Cg transform=%22translate%28275.6 73.5%29 rotate%28-1 11.5 11.5%29 scale%280.96%29%22%3E%3Cpath d=%22M19 14.5A8 8 0 0 1 9.5 5a8 8 0 1 0 9.5 9.5z%22/%3E%3C/g%3E%3Cg transform=%22translate%28310.0 75.0%29 rotate%28-11 11.2 11.2%29 scale%280.94%29%22%3E%3Cpath d=%22M3 11 21 3l-6 18-3-7z%22/%3E%3Cpath d=%22m12 14 9-11%22/%3E%3C/g%3E%3Cg transform=%22translate%282.7 109.3%29 rotate%28-19 11.9 11.9%29 scale%280.99%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M4 15c-2 2 0 3 4 2s9-5 11-8 0-4-3-3%22/%3E%3C/g%3E%3Cg transform=%22translate%2842.1 109.3%29 rotate%2811 11.0 11.0%29 scale%280.92%29%22%3E%3Cpath d=%22m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z%22/%3E%3C/g%3E%3Cg transform=%22translate%2873.8 105.6%29 rotate%2820 12.2 12.2%29 scale%281.02%29%22%3E%3Ccircle cx=%228%22 cy=%2212%22 r=%223.5%22/%3E%3Cpath d=%22M11.5 12H20M17 12v3M19.5 12v2%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.6 107.1%29 rotate%28-8 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M9 18V5l10-2v13%22/%3E%3Ccircle cx=%226.5%22 cy=%2218%22 r=%222.5%22/%3E%3Ccircle cx=%2216.5%22 cy=%2216%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28143.6 110.5%29 rotate%28-16 11.0 11.0%29 scale%280.91%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28173.7 107.2%29 rotate%2813 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%28210.7 107.1%29 rotate%2827 11.7 11.7%29 scale%280.98%29%22%3E%3Cpath d=%22M19 14.5A8 8 0 0 1 9.5 5a8 8 0 1 0 9.5 9.5z%22/%3E%3C/g%3E%3Cg transform=%22translate%28243.1 109.5%29 rotate%2826 11.6 11.6%29 scale%280.97%29%22%3E%3Cpath d=%22M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z%22/%3E%3Cpath d=%22M16 10h2a2.5 2.5 0 0 1 0 5h-2%22/%3E%3Cpath d=%22M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3%22/%3E%3C/g%3E%3Cg transform=%22translate%28278.4 107.7%29 rotate%28-22 10.5 10.5%29 scale%280.87%29%22%3E%3Cpath d=%22M9 18V5l10-2v13%22/%3E%3Ccircle cx=%226.5%22 cy=%2218%22 r=%222.5%22/%3E%3Ccircle cx=%2216.5%22 cy=%2216%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28313.2 107.4%29 rotate%2822 11.5 11.5%29 scale%280.96%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M4 15c-2 2 0 3 4 2s9-5 11-8 0-4-3-3%22/%3E%3C/g%3E%3Cg transform=%22translate%285.9 143.2%29 rotate%28-23 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M19 14.5A8 8 0 0 1 9.5 5a8 8 0 1 0 9.5 9.5z%22/%3E%3C/g%3E%3Cg transform=%22translate%2841.2 140.9%29 rotate%28-18 11.2 11.2%29 scale%280.94%29%22%3E%3Cpath d=%22M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z%22/%3E%3Cpath d=%22M16 10h2a2.5 2.5 0 0 1 0 5h-2%22/%3E%3Cpath d=%22M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3%22/%3E%3C/g%3E%3Cg transform=%22translate%2871.7 140.1%29 rotate%2814 11.2 11.2%29 scale%280.93%29%22%3E%3Cpath d=%22M16 7l-7 7a2 2 0 0 0 3 3l7-7a4 4 0 0 0-6-6l-7 7a6 6 0 0 0 8 8l6-6%22/%3E%3C/g%3E%3Cg transform=%22translate%28108.5 143.4%29 rotate%285 10.4 10.4%29 scale%280.86%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28141.7 139.6%29 rotate%28-8 11.6 11.6%29 scale%280.97%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M4 15c-2 2 0 3 4 2s9-5 11-8 0-4-3-3%22/%3E%3C/g%3E%3Cg transform=%22translate%28173.2 142.4%29 rotate%2813 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M12 7c-2-1.5-6-1-6 4 0 4 3 8 5 8 .5 0 .7-.3 1-.3s.5.3 1 .3c2 0 5-4 5-8 0-5-4-5.5-6-4z%22/%3E%3Cpath d=%22M12 7c0-2 1-3 2.5-3.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28211.5 140.4%29 rotate%2821 11.2 11.2%29 scale%280.93%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28245.6 141.4%29 rotate%280 10.7 10.7%29 scale%280.89%29%22%3E%3Cpath d=%22M4 10h16v10H4zM3 7h18v3H3zM12 7v13%22/%3E%3Cpath d=%22M12 7c-2-4-6-3-4 0M12 7c2-4 6-3 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28279.9 141.1%29 rotate%28-21 11.1 11.1%29 scale%280.93%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%224%22/%3E%3Cpath d=%22M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28313.0 143.3%29 scale%280.75%29%22%3E%3Cpath d=%22M9 13c1.5-2 4.5-2 6 0%22/%3E%3C/g%3E%3Cg transform=%22translate%283.3 175.4%29 rotate%281 11.3 11.3%29 scale%280.95%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%2837.8 173.7%29 rotate%2815 11.5 11.5%29 scale%280.96%29%22%3E%3Cpath d=%22M7 18a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z%22/%3E%3C/g%3E%3Cg transform=%22translate%2873.7 175.9%29 rotate%28-10 11.4 11.4%29 scale%280.95%29%22%3E%3Cpath d=%22M9 17h6M10 20h4%22/%3E%3Cpath d=%22M8.5 14A6 6 0 1 1 15.5 14c-.8.8-1 1.6-1 3h-5c0-1.4-.2-2.2-1-3z%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.4 172.7%29 rotate%28-25 12.0 12.0%29 scale%281.00%29%22%3E%3Cpath d=%22M4 5h16v10H10l-4 4v-4H4z%22/%3E%3C/g%3E%3Cg transform=%22translate%28143.8 173.6%29 rotate%28-26 11.2 11.2%29 scale%280.93%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28175.6 176.5%29 rotate%280 11.5 11.5%29 scale%280.96%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%28209.7 174.4%29 rotate%2817 11.3 11.3%29 scale%280.94%29%22%3E%3Cpath d=%22M12 21 4 6a14 14 0 0 1 16 0z%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%221%22/%3E%3Ccircle cx=%2214%22 cy=%2213%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28241.8 175.3%29 rotate%2825 12.0 12.0%29 scale%281.00%29%22%3E%3Cpath d=%22m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z%22/%3E%3C/g%3E%3Cg transform=%22translate%28278.1 174.3%29 rotate%28-21 10.6 10.6%29 scale%280.88%29%22%3E%3Cpath d=%22M12 21 4 6a14 14 0 0 1 16 0z%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%221%22/%3E%3Ccircle cx=%2214%22 cy=%2213%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28310.9 174.0%29 rotate%28-16 11.1 11.1%29 scale%280.93%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%284.2 207.6%29 rotate%288 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M5 6h10v7H9l-3 3v-3H5z%22/%3E%3Cpath d=%22M15 9h4v6h-1v2.5L15.5 15H11v-2%22/%3E%3C/g%3E%3Cg transform=%22translate%2841.1 208.3%29 rotate%28-16 12.2 12.2%29 scale%281.01%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%2871.0 208.6%29 scale%280.75%29%22%3E%3Cpath d=%22M12 9v6M9 12h6%22/%3E%3C/g%3E%3Cg transform=%22translate%28107.2 207.9%29 rotate%28-4 11.1 11.1%29 scale%280.92%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28142.3 208.2%29 rotate%283 10.4 10.4%29 scale%280.86%29%22%3E%3Cpath d=%22M9 18V5l10-2v13%22/%3E%3Ccircle cx=%226.5%22 cy=%2218%22 r=%222.5%22/%3E%3Ccircle cx=%2216.5%22 cy=%2216%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28178.0 207.8%29 rotate%28-11 11.3 11.3%29 scale%280.94%29%22%3E%3Cpath d=%22M3 6h18v12H3z%22/%3E%3Cpath d=%22m3 7 9 6 9-6%22/%3E%3C/g%3E%3Cg transform=%22translate%28207.6 206.5%29 rotate%28-22 12.2 12.2%29 scale%281.02%29%22%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222%22/%3E%3Cpath d=%22M12 8c-1-4 3-4 2 0M14 10c4-1 4 3 0 2M12 12c1 4-3 4-2 0M10 10c-4 1-4-3 0-2%22/%3E%3Cpath d=%22M12 12v9M12 17c-2 0-3-1-4-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28245.0 210.1%29 rotate%2818 11.8 11.8%29 scale%280.98%29%22%3E%3Cpath d=%22M4 15v-3a8 8 0 0 1 16 0v3%22/%3E%3Cpath d=%22M4 15h3v5H4zM17 15h3v5h-3z%22/%3E%3C/g%3E%3Cg transform=%22translate%28278.0 209.9%29 rotate%282 11.1 11.1%29 scale%280.92%29%22%3E%3Cpath d=%22M4 10h16v10H4zM3 7h18v3H3zM12 7v13%22/%3E%3Cpath d=%22M12 7c-2-4-6-3-4 0M12 7c2-4 6-3 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28313.4 210.1%29 rotate%28-25 10.5 10.5%29 scale%280.87%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%284.1 243.0%29 rotate%28-27 10.8 10.8%29 scale%280.90%29%22%3E%3Ccircle cx=%226%22 cy=%2216%22 r=%223.5%22/%3E%3Ccircle cx=%2218%22 cy=%2216%22 r=%223.5%22/%3E%3Cpath d=%22M6 16l4-7h5l3 7M10 9l2 7h-6M14 6h2%22/%3E%3C/g%3E%3Cg transform=%22translate%2840.3 243.7%29 rotate%2820 10.4 10.4%29 scale%280.87%29%22%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222%22/%3E%3Cpath d=%22M12 8c-1-4 3-4 2 0M14 10c4-1 4 3 0 2M12 12c1 4-3 4-2 0M10 10c-4 1-4-3 0-2%22/%3E%3Cpath d=%22M12 12v9M12 17c-2 0-3-1-4-2%22/%3E%3C/g%3E%3Cg transform=%22translate%2874.5 241.6%29 rotate%2823 11.1 11.1%29 scale%280.93%29%22%3E%3Cpath d=%22M3 12a9 9 0 0 1 18 0z%22/%3E%3Cpath d=%22M12 12v6a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.7 241.3%29 rotate%2826 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%28140.0 243.2%29 rotate%282 11.5 11.5%29 scale%280.96%29%22%3E%3Ccircle cx=%228%22 cy=%2212%22 r=%223.5%22/%3E%3Cpath d=%22M11.5 12H20M17 12v3M19.5 12v2%22/%3E%3C/g%3E%3Cg transform=%22translate%28178.6 241.8%29 rotate%2817 10.8 10.8%29 scale%280.90%29%22%3E%3Cpath d=%22M7 18a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z%22/%3E%3C/g%3E%3Cg transform=%22translate%28209.1 241.5%29 scale%280.75%29%22%3E%3Cpath d=%22M12 9v6M9 12h6%22/%3E%3C/g%3E%3Cg transform=%22translate%28244.1 244.5%29 rotate%2818 10.5 10.5%29 scale%280.88%29%22%3E%3Cpath d=%22M12 21 4 6a14 14 0 0 1 16 0z%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%221%22/%3E%3Ccircle cx=%2214%22 cy=%2213%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28275.4 241.5%29 rotate%28-11 12.2 12.2%29 scale%281.02%29%22%3E%3Cpath d=%22M16 7l-7 7a2 2 0 0 0 3 3l7-7a4 4 0 0 0-6-6l-7 7a6 6 0 0 0 8 8l6-6%22/%3E%3C/g%3E%3Cg transform=%22translate%28311.8 242.6%29 rotate%2812 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z%22/%3E%3Cpath d=%22M16 10h2a2.5 2.5 0 0 1 0 5h-2%22/%3E%3Cpath d=%22M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3%22/%3E%3C/g%3E%3Cg transform=%22translate%287.0 274.1%29 scale%280.75%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%221.3%22/%3E%3C/g%3E%3Cg transform=%22translate%2840.7 277.3%29 rotate%28-25 11.1 11.1%29 scale%280.93%29%22%3E%3Cpath d=%22M4 10h16v10H4zM3 7h18v3H3zM12 7v13%22/%3E%3Cpath d=%22M12 7c-2-4-6-3-4 0M12 7c2-4 6-3 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%2872.1 276.4%29 rotate%28-12 11.6 11.6%29 scale%280.97%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.8 277.6%29 rotate%28-13 10.7 10.7%29 scale%280.89%29%22%3E%3Cpath d=%22M3 11 21 3l-6 18-3-7z%22/%3E%3Cpath d=%22m12 14 9-11%22/%3E%3C/g%3E%3Cg transform=%22translate%28139.5 279.1%29 rotate%283 12.2 12.2%29 scale%281.02%29%22%3E%3Cpath d=%22M3 6h18v12H3z%22/%3E%3Cpath d=%22m3 7 9 6 9-6%22/%3E%3C/g%3E%3Cg transform=%22translate%28173.1 276.0%29 scale%280.75%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%222.4%22/%3E%3C/g%3E%3Cg transform=%22translate%28208.3 277.8%29 rotate%280 11.2 11.2%29 scale%280.94%29%22%3E%3Cpath d=%22M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z%22/%3E%3Cpath d=%22M12 6v14%22/%3E%3C/g%3E%3Cg transform=%22translate%28242.7 278.9%29 rotate%2818 10.5 10.5%29 scale%280.87%29%22%3E%3Cpath d=%22M12 7c-2-1.5-6-1-6 4 0 4 3 8 5 8 .5 0 .7-.3 1-.3s.5.3 1 .3c2 0 5-4 5-8 0-5-4-5.5-6-4z%22/%3E%3Cpath d=%22M12 7c0-2 1-3 2.5-3.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28276.0 280.4%29 rotate%287 10.9 10.9%29 scale%280.91%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M4.5 9.5c4 1 11 1 15 0M4.5 14.5c4-1 11-1 15 0M12 4c-2.5 4-2.5 12 0 16%22/%3E%3C/g%3E%3Cg transform=%22translate%28313.3 276.9%29 rotate%2812 11.6 11.6%29 scale%280.97%29%22%3E%3Cpath d=%22M5 6h10v7H9l-3 3v-3H5z%22/%3E%3Cpath d=%22M15 9h4v6h-1v2.5L15.5 15H11v-2%22/%3E%3C/g%3E%3Cg transform=%22translate%284.2 311.9%29 rotate%28-0 11.7 11.7%29 scale%280.98%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%2842.6 313.2%29 rotate%2819 10.4 10.4%29 scale%280.87%29%22%3E%3Cpath d=%22M5 6h10v7H9l-3 3v-3H5z%22/%3E%3Cpath d=%22M15 9h4v6h-1v2.5L15.5 15H11v-2%22/%3E%3C/g%3E%3Cg transform=%22translate%2873.3 312.5%29 rotate%2814 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28109.1 312.0%29 rotate%285 11.9 11.9%29 scale%280.99%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M4.5 9.5c4 1 11 1 15 0M4.5 14.5c4-1 11-1 15 0M12 4c-2.5 4-2.5 12 0 16%22/%3E%3C/g%3E%3Cg transform=%22translate%28143.2 314.8%29 rotate%28-26 10.5 10.5%29 scale%280.87%29%22%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222%22/%3E%3Cpath d=%22M12 8c-1-4 3-4 2 0M14 10c4-1 4 3 0 2M12 12c1 4-3 4-2 0M10 10c-4 1-4-3 0-2%22/%3E%3Cpath d=%22M12 12v9M12 17c-2 0-3-1-4-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28175.7 311.7%29 rotate%283 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M12 4a8 8 0 1 0 0 16c1.5 0 1.8-1.2 1-2.2-.8-1-.4-2.3 1-2.3H17a3 3 0 0 0 3-3C20 7.5 16.4 4 12 4z%22/%3E%3Ccircle cx=%228%22 cy=%2211%22 r=%221%22/%3E%3Ccircle cx=%2211%22 cy=%228%22 r=%221%22/%3E%3Ccircle cx=%2215%22 cy=%228.5%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28211.2 313.0%29 rotate%28-28 11.3 11.3%29 scale%280.94%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%28243.1 312.2%29 rotate%28-23 12.0 12.0%29 scale%281.00%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28277.0 313.3%29 rotate%28-24 10.8 10.8%29 scale%280.90%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M4 15c-2 2 0 3 4 2s9-5 11-8 0-4-3-3%22/%3E%3C/g%3E%3Cg transform=%22translate%28311.0 310.3%29 scale%280.75%29%22%3E%3Cpath d=%22M9 13c1.5-2 4.5-2 6 0%22/%3E%3C/g%3E%3C/svg%3E");
+
+  --profile-bg: #f0f2f5;
+  --surface: #ffffff;
+  --surface-2: #f0f2f5;
+  --hover: #f5f6f6;
+  --line: #e9edef;
+
+  --text: #111b21;
+  --text-2: #667781;
+  --text-3: #aebac1;
+  /* Brand colors come from the client profile (Configuración → Negocio). */
+  --accent: var(--brand);
+  --accent-solid: var(--brand);
+  --accent-solid-hover: color-mix(in srgb, var(--brand) 88%, black);
+  --accent-solid-active: color-mix(in srgb, var(--brand) 78%, black);
+  --orange: var(--brand-2);
+  --online: #13a85c;
+
+  --bubble-in: #ffffff;
+  --bubble-out: color-mix(in srgb, var(--brand) 13%, white);
+  --bubble-out-text: #111b21;
+  --bubble-shadow: 0 1px .5px rgba(11,20,26,.13);
+  --meta: #667781;
+  --meta-out: color-mix(in srgb, var(--brand) 30%, #667781);
+  --check: #53bdeb;
+
+  --composer-bg: #f0f2f5;
+  --input-bg: #ffffff;
+  --chip-bg: #ffffff;
+  --chip-border: color-mix(in srgb, var(--brand) 22%, transparent);
+  --chip-border-hover: color-mix(in srgb, var(--brand) 32%, transparent);
+  --orange-soft: color-mix(in srgb, var(--brand-2) 6%, white);
+  --orange-border: color-mix(in srgb, var(--brand-2) 26%, transparent);
+  --accent-soft: color-mix(in srgb, var(--brand) 9%, white);
+  --accent-soft-hover: color-mix(in srgb, var(--brand) 14%, white);
+  --danger: #c2412d;
+  --danger-soft: #fdeeeb;
+  --danger-soft-hover: #fbe1dc;
+  --field-bg: #f0f2f5;
+  --group-line: #e1e5ea;
+  --divider-bg: #ffffff;
+
+  --ink: var(--text);
+  --muted: var(--text-2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --header-bg: #202c33;
+    --header-text: #e9edef;
+
+    --app-bg: #0c1317;
+    --chat-bg: #0b141a;
+    --doodle: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22340%22 height=%22340%22 viewBox=%220 0 340 340%22 fill=%22none%22 stroke=%22%23ffffff%22 stroke-opacity=%22.06%22 stroke-width=%221.35%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22%3E%3Cg transform=%22translate%282.6 6.5%29 rotate%28-6 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%2840.0 3.7%29 rotate%28-25 11.0 11.0%29 scale%280.92%29%22%3E%3Cpath d=%22M4 5h16v10H10l-4 4v-4H4z%22/%3E%3C/g%3E%3Cg transform=%22translate%2874.1 3.7%29 rotate%28-15 11.1 11.1%29 scale%280.93%29%22%3E%3Cpath d=%22M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z%22/%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.3 5.9%29 rotate%285 11.5 11.5%29 scale%280.96%29%22%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222%22/%3E%3Cpath d=%22M12 8c-1-4 3-4 2 0M14 10c4-1 4 3 0 2M12 12c1 4-3 4-2 0M10 10c-4 1-4-3 0-2%22/%3E%3Cpath d=%22M12 12v9M12 17c-2 0-3-1-4-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28142.6 3.8%29 rotate%28-25 12.2 12.2%29 scale%281.02%29%22%3E%3Cpath d=%22M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z%22/%3E%3Cpath d=%22M10 20.5a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28175.9 6.6%29 rotate%284 11.4 11.4%29 scale%280.95%29%22%3E%3Cpath d=%22M5 6h10v7H9l-3 3v-3H5z%22/%3E%3Cpath d=%22M15 9h4v6h-1v2.5L15.5 15H11v-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28208.9 5.8%29 rotate%288 11.4 11.4%29 scale%280.95%29%22%3E%3Cpath d=%22M4 5h16v10H10l-4 4v-4H4z%22/%3E%3C/g%3E%3Cg transform=%22translate%28243.6 5.8%29 rotate%287 11.4 11.4%29 scale%280.95%29%22%3E%3Ccircle cx=%226%22 cy=%2216%22 r=%223.5%22/%3E%3Ccircle cx=%2218%22 cy=%2216%22 r=%223.5%22/%3E%3Cpath d=%22M6 16l4-7h5l3 7M10 9l2 7h-6M14 6h2%22/%3E%3C/g%3E%3Cg transform=%22translate%28276.6 7.0%29 rotate%28-3 11.4 11.4%29 scale%280.95%29%22%3E%3Cpath d=%22M3 11 21 3l-6 18-3-7z%22/%3E%3Cpath d=%22m12 14 9-11%22/%3E%3C/g%3E%3Cg transform=%22translate%28312.5 5.7%29 rotate%28-11 10.5 10.5%29 scale%280.87%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%284.2 39.7%29 rotate%2827 10.9 10.9%29 scale%280.91%29%22%3E%3Cpath d=%22M12 21 4 6a14 14 0 0 1 16 0z%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%221%22/%3E%3Ccircle cx=%2214%22 cy=%2213%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%2838.1 41.2%29 rotate%28-1 10.6 10.6%29 scale%280.88%29%22%3E%3Cpath d=%22M3 6h18v12H3z%22/%3E%3Cpath d=%22m3 7 9 6 9-6%22/%3E%3C/g%3E%3Cg transform=%22translate%2874.0 41.5%29 rotate%28-8 11.0 11.0%29 scale%280.91%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%28106.9 39.9%29 rotate%2825 11.9 11.9%29 scale%280.99%29%22%3E%3Ccircle cx=%226%22 cy=%2216%22 r=%223.5%22/%3E%3Ccircle cx=%2218%22 cy=%2216%22 r=%223.5%22/%3E%3Cpath d=%22M6 16l4-7h5l3 7M10 9l2 7h-6M14 6h2%22/%3E%3C/g%3E%3Cg transform=%22translate%28143.0 38.4%29 rotate%2828 11.6 11.6%29 scale%280.96%29%22%3E%3Ccircle cx=%228%22 cy=%2212%22 r=%223.5%22/%3E%3Cpath d=%22M11.5 12H20M17 12v3M19.5 12v2%22/%3E%3C/g%3E%3Cg transform=%22translate%28177.2 38.3%29 rotate%28-9 12.0 12.0%29 scale%281.00%29%22%3E%3Cpath d=%22M12 4a8 8 0 1 0 0 16c1.5 0 1.8-1.2 1-2.2-.8-1-.4-2.3 1-2.3H17a3 3 0 0 0 3-3C20 7.5 16.4 4 12 4z%22/%3E%3Ccircle cx=%228%22 cy=%2211%22 r=%221%22/%3E%3Ccircle cx=%2211%22 cy=%228%22 r=%221%22/%3E%3Ccircle cx=%2215%22 cy=%228.5%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28208.7 40.9%29 rotate%28-16 11.3 11.3%29 scale%280.94%29%22%3E%3Cpath d=%22M9 17h6M10 20h4%22/%3E%3Cpath d=%22M8.5 14A6 6 0 1 1 15.5 14c-.8.8-1 1.6-1 3h-5c0-1.4-.2-2.2-1-3z%22/%3E%3C/g%3E%3Cg transform=%22translate%28240.5 38.7%29 scale%280.75%29%22%3E%3Cpath d=%22M9 13c1.5-2 4.5-2 6 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28277.8 40.4%29 rotate%28-20 10.9 10.9%29 scale%280.90%29%22%3E%3Cpath d=%22M3 12a9 9 0 0 1 18 0z%22/%3E%3Cpath d=%22M12 12v6a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28310.2 37.4%29 rotate%2810 12.2 12.2%29 scale%281.02%29%22%3E%3Cpath d=%22M4 20l1-4L16 5l3 3L8 19z%22/%3E%3Cpath d=%22m14 7 3 3%22/%3E%3C/g%3E%3Cg transform=%22translate%285.0 74.3%29 rotate%28-15 10.7 10.7%29 scale%280.89%29%22%3E%3Cpath d=%22M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z%22/%3E%3Cpath d=%22M12 6v14%22/%3E%3C/g%3E%3Cg transform=%22translate%2840.3 74.7%29 rotate%28-20 10.9 10.9%29 scale%280.91%29%22%3E%3Cpath d=%22M4 10h16v10H4zM3 7h18v3H3zM12 7v13%22/%3E%3Cpath d=%22M12 7c-2-4-6-3-4 0M12 7c2-4 6-3 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%2873.9 74.2%29 rotate%281 11.6 11.6%29 scale%280.97%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28110.1 74.7%29 rotate%2821 11.2 11.2%29 scale%280.93%29%22%3E%3Cpath d=%22M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z%22/%3E%3Cpath d=%22M10 20.5a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28139.9 74.6%29 rotate%28-6 11.1 11.1%29 scale%280.92%29%22%3E%3Cpath d=%22M3 12a9 9 0 0 1 18 0z%22/%3E%3Cpath d=%22M12 12v6a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28176.0 72.4%29 rotate%2827 10.7 10.7%29 scale%280.89%29%22%3E%3Cpath d=%22M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z%22/%3E%3Cpath d=%22M10 20.5a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28208.7 74.0%29 rotate%28-20 10.3 10.3%29 scale%280.86%29%22%3E%3Cpath d=%22M4 5h16v10H10l-4 4v-4H4z%22/%3E%3C/g%3E%3Cg transform=%22translate%28243.9 75.2%29 rotate%28-16 10.5 10.5%29 scale%280.87%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M4.5 9.5c4 1 11 1 15 0M4.5 14.5c4-1 11-1 15 0M12 4c-2.5 4-2.5 12 0 16%22/%3E%3C/g%3E%3Cg transform=%22translate%28275.6 73.5%29 rotate%28-1 11.5 11.5%29 scale%280.96%29%22%3E%3Cpath d=%22M19 14.5A8 8 0 0 1 9.5 5a8 8 0 1 0 9.5 9.5z%22/%3E%3C/g%3E%3Cg transform=%22translate%28310.0 75.0%29 rotate%28-11 11.2 11.2%29 scale%280.94%29%22%3E%3Cpath d=%22M3 11 21 3l-6 18-3-7z%22/%3E%3Cpath d=%22m12 14 9-11%22/%3E%3C/g%3E%3Cg transform=%22translate%282.7 109.3%29 rotate%28-19 11.9 11.9%29 scale%280.99%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M4 15c-2 2 0 3 4 2s9-5 11-8 0-4-3-3%22/%3E%3C/g%3E%3Cg transform=%22translate%2842.1 109.3%29 rotate%2811 11.0 11.0%29 scale%280.92%29%22%3E%3Cpath d=%22m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z%22/%3E%3C/g%3E%3Cg transform=%22translate%2873.8 105.6%29 rotate%2820 12.2 12.2%29 scale%281.02%29%22%3E%3Ccircle cx=%228%22 cy=%2212%22 r=%223.5%22/%3E%3Cpath d=%22M11.5 12H20M17 12v3M19.5 12v2%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.6 107.1%29 rotate%28-8 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M9 18V5l10-2v13%22/%3E%3Ccircle cx=%226.5%22 cy=%2218%22 r=%222.5%22/%3E%3Ccircle cx=%2216.5%22 cy=%2216%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28143.6 110.5%29 rotate%28-16 11.0 11.0%29 scale%280.91%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28173.7 107.2%29 rotate%2813 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%28210.7 107.1%29 rotate%2827 11.7 11.7%29 scale%280.98%29%22%3E%3Cpath d=%22M19 14.5A8 8 0 0 1 9.5 5a8 8 0 1 0 9.5 9.5z%22/%3E%3C/g%3E%3Cg transform=%22translate%28243.1 109.5%29 rotate%2826 11.6 11.6%29 scale%280.97%29%22%3E%3Cpath d=%22M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z%22/%3E%3Cpath d=%22M16 10h2a2.5 2.5 0 0 1 0 5h-2%22/%3E%3Cpath d=%22M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3%22/%3E%3C/g%3E%3Cg transform=%22translate%28278.4 107.7%29 rotate%28-22 10.5 10.5%29 scale%280.87%29%22%3E%3Cpath d=%22M9 18V5l10-2v13%22/%3E%3Ccircle cx=%226.5%22 cy=%2218%22 r=%222.5%22/%3E%3Ccircle cx=%2216.5%22 cy=%2216%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28313.2 107.4%29 rotate%2822 11.5 11.5%29 scale%280.96%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M4 15c-2 2 0 3 4 2s9-5 11-8 0-4-3-3%22/%3E%3C/g%3E%3Cg transform=%22translate%285.9 143.2%29 rotate%28-23 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M19 14.5A8 8 0 0 1 9.5 5a8 8 0 1 0 9.5 9.5z%22/%3E%3C/g%3E%3Cg transform=%22translate%2841.2 140.9%29 rotate%28-18 11.2 11.2%29 scale%280.94%29%22%3E%3Cpath d=%22M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z%22/%3E%3Cpath d=%22M16 10h2a2.5 2.5 0 0 1 0 5h-2%22/%3E%3Cpath d=%22M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3%22/%3E%3C/g%3E%3Cg transform=%22translate%2871.7 140.1%29 rotate%2814 11.2 11.2%29 scale%280.93%29%22%3E%3Cpath d=%22M16 7l-7 7a2 2 0 0 0 3 3l7-7a4 4 0 0 0-6-6l-7 7a6 6 0 0 0 8 8l6-6%22/%3E%3C/g%3E%3Cg transform=%22translate%28108.5 143.4%29 rotate%285 10.4 10.4%29 scale%280.86%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28141.7 139.6%29 rotate%28-8 11.6 11.6%29 scale%280.97%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M4 15c-2 2 0 3 4 2s9-5 11-8 0-4-3-3%22/%3E%3C/g%3E%3Cg transform=%22translate%28173.2 142.4%29 rotate%2813 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M12 7c-2-1.5-6-1-6 4 0 4 3 8 5 8 .5 0 .7-.3 1-.3s.5.3 1 .3c2 0 5-4 5-8 0-5-4-5.5-6-4z%22/%3E%3Cpath d=%22M12 7c0-2 1-3 2.5-3.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28211.5 140.4%29 rotate%2821 11.2 11.2%29 scale%280.93%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28245.6 141.4%29 rotate%280 10.7 10.7%29 scale%280.89%29%22%3E%3Cpath d=%22M4 10h16v10H4zM3 7h18v3H3zM12 7v13%22/%3E%3Cpath d=%22M12 7c-2-4-6-3-4 0M12 7c2-4 6-3 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28279.9 141.1%29 rotate%28-21 11.1 11.1%29 scale%280.93%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%224%22/%3E%3Cpath d=%22M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28313.0 143.3%29 scale%280.75%29%22%3E%3Cpath d=%22M9 13c1.5-2 4.5-2 6 0%22/%3E%3C/g%3E%3Cg transform=%22translate%283.3 175.4%29 rotate%281 11.3 11.3%29 scale%280.95%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%2837.8 173.7%29 rotate%2815 11.5 11.5%29 scale%280.96%29%22%3E%3Cpath d=%22M7 18a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z%22/%3E%3C/g%3E%3Cg transform=%22translate%2873.7 175.9%29 rotate%28-10 11.4 11.4%29 scale%280.95%29%22%3E%3Cpath d=%22M9 17h6M10 20h4%22/%3E%3Cpath d=%22M8.5 14A6 6 0 1 1 15.5 14c-.8.8-1 1.6-1 3h-5c0-1.4-.2-2.2-1-3z%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.4 172.7%29 rotate%28-25 12.0 12.0%29 scale%281.00%29%22%3E%3Cpath d=%22M4 5h16v10H10l-4 4v-4H4z%22/%3E%3C/g%3E%3Cg transform=%22translate%28143.8 173.6%29 rotate%28-26 11.2 11.2%29 scale%280.93%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28175.6 176.5%29 rotate%280 11.5 11.5%29 scale%280.96%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%28209.7 174.4%29 rotate%2817 11.3 11.3%29 scale%280.94%29%22%3E%3Cpath d=%22M12 21 4 6a14 14 0 0 1 16 0z%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%221%22/%3E%3Ccircle cx=%2214%22 cy=%2213%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28241.8 175.3%29 rotate%2825 12.0 12.0%29 scale%281.00%29%22%3E%3Cpath d=%22m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z%22/%3E%3C/g%3E%3Cg transform=%22translate%28278.1 174.3%29 rotate%28-21 10.6 10.6%29 scale%280.88%29%22%3E%3Cpath d=%22M12 21 4 6a14 14 0 0 1 16 0z%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%221%22/%3E%3Ccircle cx=%2214%22 cy=%2213%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28310.9 174.0%29 rotate%28-16 11.1 11.1%29 scale%280.93%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%284.2 207.6%29 rotate%288 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M5 6h10v7H9l-3 3v-3H5z%22/%3E%3Cpath d=%22M15 9h4v6h-1v2.5L15.5 15H11v-2%22/%3E%3C/g%3E%3Cg transform=%22translate%2841.1 208.3%29 rotate%28-16 12.2 12.2%29 scale%281.01%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%2871.0 208.6%29 scale%280.75%29%22%3E%3Cpath d=%22M12 9v6M9 12h6%22/%3E%3C/g%3E%3Cg transform=%22translate%28107.2 207.9%29 rotate%28-4 11.1 11.1%29 scale%280.92%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28142.3 208.2%29 rotate%283 10.4 10.4%29 scale%280.86%29%22%3E%3Cpath d=%22M9 18V5l10-2v13%22/%3E%3Ccircle cx=%226.5%22 cy=%2218%22 r=%222.5%22/%3E%3Ccircle cx=%2216.5%22 cy=%2216%22 r=%222.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28178.0 207.8%29 rotate%28-11 11.3 11.3%29 scale%280.94%29%22%3E%3Cpath d=%22M3 6h18v12H3z%22/%3E%3Cpath d=%22m3 7 9 6 9-6%22/%3E%3C/g%3E%3Cg transform=%22translate%28207.6 206.5%29 rotate%28-22 12.2 12.2%29 scale%281.02%29%22%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222%22/%3E%3Cpath d=%22M12 8c-1-4 3-4 2 0M14 10c4-1 4 3 0 2M12 12c1 4-3 4-2 0M10 10c-4 1-4-3 0-2%22/%3E%3Cpath d=%22M12 12v9M12 17c-2 0-3-1-4-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28245.0 210.1%29 rotate%2818 11.8 11.8%29 scale%280.98%29%22%3E%3Cpath d=%22M4 15v-3a8 8 0 0 1 16 0v3%22/%3E%3Cpath d=%22M4 15h3v5H4zM17 15h3v5h-3z%22/%3E%3C/g%3E%3Cg transform=%22translate%28278.0 209.9%29 rotate%282 11.1 11.1%29 scale%280.92%29%22%3E%3Cpath d=%22M4 10h16v10H4zM3 7h18v3H3zM12 7v13%22/%3E%3Cpath d=%22M12 7c-2-4-6-3-4 0M12 7c2-4 6-3 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28313.4 210.1%29 rotate%28-25 10.5 10.5%29 scale%280.87%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%284.1 243.0%29 rotate%28-27 10.8 10.8%29 scale%280.90%29%22%3E%3Ccircle cx=%226%22 cy=%2216%22 r=%223.5%22/%3E%3Ccircle cx=%2218%22 cy=%2216%22 r=%223.5%22/%3E%3Cpath d=%22M6 16l4-7h5l3 7M10 9l2 7h-6M14 6h2%22/%3E%3C/g%3E%3Cg transform=%22translate%2840.3 243.7%29 rotate%2820 10.4 10.4%29 scale%280.87%29%22%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222%22/%3E%3Cpath d=%22M12 8c-1-4 3-4 2 0M14 10c4-1 4 3 0 2M12 12c1 4-3 4-2 0M10 10c-4 1-4-3 0-2%22/%3E%3Cpath d=%22M12 12v9M12 17c-2 0-3-1-4-2%22/%3E%3C/g%3E%3Cg transform=%22translate%2874.5 241.6%29 rotate%2823 11.1 11.1%29 scale%280.93%29%22%3E%3Cpath d=%22M3 12a9 9 0 0 1 18 0z%22/%3E%3Cpath d=%22M12 12v6a2 2 0 0 0 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.7 241.3%29 rotate%2826 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%28140.0 243.2%29 rotate%282 11.5 11.5%29 scale%280.96%29%22%3E%3Ccircle cx=%228%22 cy=%2212%22 r=%223.5%22/%3E%3Cpath d=%22M11.5 12H20M17 12v3M19.5 12v2%22/%3E%3C/g%3E%3Cg transform=%22translate%28178.6 241.8%29 rotate%2817 10.8 10.8%29 scale%280.90%29%22%3E%3Cpath d=%22M7 18a4 4 0 0 1-.5-8A5.5 5.5 0 0 1 17 9a4.5 4.5 0 0 1 .5 9z%22/%3E%3C/g%3E%3Cg transform=%22translate%28209.1 241.5%29 scale%280.75%29%22%3E%3Cpath d=%22M12 9v6M9 12h6%22/%3E%3C/g%3E%3Cg transform=%22translate%28244.1 244.5%29 rotate%2818 10.5 10.5%29 scale%280.88%29%22%3E%3Cpath d=%22M12 21 4 6a14 14 0 0 1 16 0z%22/%3E%3Ccircle cx=%2210%22 cy=%2210%22 r=%221%22/%3E%3Ccircle cx=%2214%22 cy=%2213%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28275.4 241.5%29 rotate%28-11 12.2 12.2%29 scale%281.02%29%22%3E%3Cpath d=%22M16 7l-7 7a2 2 0 0 0 3 3l7-7a4 4 0 0 0-6-6l-7 7a6 6 0 0 0 8 8l6-6%22/%3E%3C/g%3E%3Cg transform=%22translate%28311.8 242.6%29 rotate%2812 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M4 8h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z%22/%3E%3Cpath d=%22M16 10h2a2.5 2.5 0 0 1 0 5h-2%22/%3E%3Cpath d=%22M8 3c0 1.5 1 1.5 1 3M12 3c0 1.5 1 1.5 1 3%22/%3E%3C/g%3E%3Cg transform=%22translate%287.0 274.1%29 scale%280.75%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%221.3%22/%3E%3C/g%3E%3Cg transform=%22translate%2840.7 277.3%29 rotate%28-25 11.1 11.1%29 scale%280.93%29%22%3E%3Cpath d=%22M4 10h16v10H4zM3 7h18v3H3zM12 7v13%22/%3E%3Cpath d=%22M12 7c-2-4-6-3-4 0M12 7c2-4 6-3 4 0%22/%3E%3C/g%3E%3Cg transform=%22translate%2872.1 276.4%29 rotate%28-12 11.6 11.6%29 scale%280.97%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28105.8 277.6%29 rotate%28-13 10.7 10.7%29 scale%280.89%29%22%3E%3Cpath d=%22M3 11 21 3l-6 18-3-7z%22/%3E%3Cpath d=%22m12 14 9-11%22/%3E%3C/g%3E%3Cg transform=%22translate%28139.5 279.1%29 rotate%283 12.2 12.2%29 scale%281.02%29%22%3E%3Cpath d=%22M3 6h18v12H3z%22/%3E%3Cpath d=%22m3 7 9 6 9-6%22/%3E%3C/g%3E%3Cg transform=%22translate%28173.1 276.0%29 scale%280.75%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%222.4%22/%3E%3C/g%3E%3Cg transform=%22translate%28208.3 277.8%29 rotate%280 11.2 11.2%29 scale%280.94%29%22%3E%3Cpath d=%22M4 5c3-1 6-1 8 1 2-2 5-2 8-1v14c-3-1-6-1-8 1-2-2-5-2-8-1z%22/%3E%3Cpath d=%22M12 6v14%22/%3E%3C/g%3E%3Cg transform=%22translate%28242.7 278.9%29 rotate%2818 10.5 10.5%29 scale%280.87%29%22%3E%3Cpath d=%22M12 7c-2-1.5-6-1-6 4 0 4 3 8 5 8 .5 0 .7-.3 1-.3s.5.3 1 .3c2 0 5-4 5-8 0-5-4-5.5-6-4z%22/%3E%3Cpath d=%22M12 7c0-2 1-3 2.5-3.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28276.0 280.4%29 rotate%287 10.9 10.9%29 scale%280.91%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M4.5 9.5c4 1 11 1 15 0M4.5 14.5c4-1 11-1 15 0M12 4c-2.5 4-2.5 12 0 16%22/%3E%3C/g%3E%3Cg transform=%22translate%28313.3 276.9%29 rotate%2812 11.6 11.6%29 scale%280.97%29%22%3E%3Cpath d=%22M5 6h10v7H9l-3 3v-3H5z%22/%3E%3Cpath d=%22M15 9h4v6h-1v2.5L15.5 15H11v-2%22/%3E%3C/g%3E%3Cg transform=%22translate%284.2 311.9%29 rotate%28-0 11.7 11.7%29 scale%280.98%29%22%3E%3Cpath d=%22M5 19C5 10 10 5 19 5c0 9-5 14-14 14z%22/%3E%3Cpath d=%22M5 19 13 11%22/%3E%3C/g%3E%3Cg transform=%22translate%2842.6 313.2%29 rotate%2819 10.4 10.4%29 scale%280.87%29%22%3E%3Cpath d=%22M5 6h10v7H9l-3 3v-3H5z%22/%3E%3Cpath d=%22M15 9h4v6h-1v2.5L15.5 15H11v-2%22/%3E%3C/g%3E%3Cg transform=%22translate%2873.3 312.5%29 rotate%2814 12.1 12.1%29 scale%281.01%29%22%3E%3Cpath d=%22M3 8h4l2-3h6l2 3h4v11H3z%22/%3E%3Ccircle cx=%2212%22 cy=%2213%22 r=%223.5%22/%3E%3C/g%3E%3Cg transform=%22translate%28109.1 312.0%29 rotate%285 11.9 11.9%29 scale%280.99%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M4.5 9.5c4 1 11 1 15 0M4.5 14.5c4-1 11-1 15 0M12 4c-2.5 4-2.5 12 0 16%22/%3E%3C/g%3E%3Cg transform=%22translate%28143.2 314.8%29 rotate%28-26 10.5 10.5%29 scale%280.87%29%22%3E%3Ccircle cx=%2212%22 cy=%2210%22 r=%222%22/%3E%3Cpath d=%22M12 8c-1-4 3-4 2 0M14 10c4-1 4 3 0 2M12 12c1 4-3 4-2 0M10 10c-4 1-4-3 0-2%22/%3E%3Cpath d=%22M12 12v9M12 17c-2 0-3-1-4-2%22/%3E%3C/g%3E%3Cg transform=%22translate%28175.7 311.7%29 rotate%283 11.9 11.9%29 scale%280.99%29%22%3E%3Cpath d=%22M12 4a8 8 0 1 0 0 16c1.5 0 1.8-1.2 1-2.2-.8-1-.4-2.3 1-2.3H17a3 3 0 0 0 3-3C20 7.5 16.4 4 12 4z%22/%3E%3Ccircle cx=%228%22 cy=%2211%22 r=%221%22/%3E%3Ccircle cx=%2211%22 cy=%228%22 r=%221%22/%3E%3Ccircle cx=%2215%22 cy=%228.5%22 r=%221%22/%3E%3C/g%3E%3Cg transform=%22translate%28211.2 313.0%29 rotate%28-28 11.3 11.3%29 scale%280.94%29%22%3E%3Cpath d=%22M6 9h12a3 3 0 0 1 3 3v2a3 3 0 0 1-5 2l-1-1H9l-1 1a3 3 0 0 1-5-2v-2a3 3 0 0 1 3-3z%22/%3E%3Cpath d=%22M7.5 11v3M6 12.5h3%22/%3E%3Ccircle cx=%2216%22 cy=%2212%22 r=%22.8%22/%3E%3C/g%3E%3Cg transform=%22translate%28243.1 312.2%29 rotate%28-23 12.0 12.0%29 scale%281.00%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%228%22/%3E%3Cpath d=%22M8.5 14a4 4 0 0 0 7 0%22/%3E%3Cpath d=%22M9 9.5h.01M15 9.5h.01%22/%3E%3C/g%3E%3Cg transform=%22translate%28277.0 313.3%29 rotate%28-24 10.8 10.8%29 scale%280.90%29%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%225%22/%3E%3Cpath d=%22M4 15c-2 2 0 3 4 2s9-5 11-8 0-4-3-3%22/%3E%3C/g%3E%3Cg transform=%22translate%28311.0 310.3%29 scale%280.75%29%22%3E%3Cpath d=%22M9 13c1.5-2 4.5-2 6 0%22/%3E%3C/g%3E%3C/svg%3E");
+
+    --profile-bg: #0b141a;
+    --surface: #111b21;
+    --surface-2: #202c33;
+    --hover: #1b262c;
+    --line: #222d34;
+
+    --text: #e9edef;
+    --text-2: #8696a0;
+    --text-3: #54656f;
+    --accent: color-mix(in srgb, var(--brand) 45%, white);
+    --accent-solid: color-mix(in srgb, var(--brand) 82%, white);
+    --accent-solid-hover: color-mix(in srgb, var(--brand) 74%, white);
+    --accent-solid-active: color-mix(in srgb, var(--brand) 90%, white);
+    --orange: color-mix(in srgb, var(--brand-2) 70%, white);
+    --online: #2fd17c;
+
+    --bubble-in: #202c33;
+    --bubble-out: color-mix(in srgb, var(--brand) 55%, #0b141a);
+    --bubble-out-text: #eef0ff;
+    --bubble-shadow: 0 1px .5px rgba(0,0,0,.35);
+    --meta: rgba(233,237,239,.6);
+    --meta-out: rgba(238,240,255,.65);
+    --check: #6fd2ff;
+
+    --composer-bg: #202c33;
+    --input-bg: #2a3942;
+    --chip-bg: #1f2c33;
+    --chip-border: color-mix(in srgb, var(--accent) 28%, transparent);
+    --chip-border-hover: color-mix(in srgb, var(--accent) 38%, transparent);
+    --orange-soft: color-mix(in srgb, var(--orange) 10%, transparent);
+    --orange-border: color-mix(in srgb, var(--orange) 30%, transparent);
+    --accent-soft: color-mix(in srgb, var(--accent) 16%, transparent);
+    --accent-soft-hover: color-mix(in srgb, var(--accent) 24%, transparent);
+    --danger: #ff8f7e;
+    --danger-soft: rgba(255,110,90,.14);
+    --danger-soft-hover: rgba(255,110,90,.22);
+    --field-bg: #2a3942;
+    --group-line: rgba(255,255,255,.08);
+    --divider-bg: #182229;
+  }
+}
+
+/* ---------- Page & header ---------- */
+body { background: var(--app-bg) !important; color: var(--text); font-family: var(--font-ui) !important; }
+button, textarea, input, a { font-family: inherit; }
+@media (min-width: 1160px) {
+  .chat-app { box-shadow: 0 0 0 1px var(--line), 0 6px 30px rgba(0,0,0,.06) !important; }
+}
+.chat-app { background: var(--chat-bg) !important; }
+
+/* Native messenger header: plain surface, hairline, brand lives in the avatar */
+.chat-header {
+  color: var(--header-text) !important;
+  background: var(--header-bg) !important;
+  box-shadow: none !important;
+  border-bottom: 1px solid var(--line);
+}
+.contact-copy h1 { font-size: 17px !important; font-weight: 650 !important; letter-spacing: -.01em; }
+.contact-status { color: var(--text-2) !important; font-size: 13px !important; }
+.contact-status.is-typing { color: var(--online) !important; font-weight: 500 !important; }
+.avatar-wrap { background: #fff !important; box-shadow: 0 0 0 1px var(--line) !important; }
+.online-dot { border-color: var(--header-bg) !important; background: var(--online) !important; }
+
+.header-action {
+  border: 0 !important;
+  color: var(--text-2) !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+}
+.header-action:hover { background: var(--hover) !important; color: var(--text) !important; }
+.header-action--primary { color: var(--accent) !important; font-size: 14px !important; font-weight: 600 !important; }
+.header-action--primary:hover { color: var(--accent) !important; background: var(--accent-soft) !important; }
+.header-action svg { stroke-width: 1.8 !important; }
+
+/* ---------- Chat wallpaper: subtle hand-drawn doodles ---------- */
+.messages {
+  background-color: var(--chat-bg) !important;
+  background-image: var(--doodle) !important;
+  background-size: 340px 340px !important;
+  background-repeat: repeat !important;
+  background-position: center top !important;
+  scrollbar-color: color-mix(in srgb, var(--text-2) 35%, transparent) transparent;
+}
+.messages::-webkit-scrollbar-thumb { background: color-mix(in srgb, var(--text-2) 35%, transparent) !important; }
+
+/* ---------- Day divider ---------- */
+.day-divider span {
+  padding: 5px 12px !important;
+  border-radius: 8px !important;
+  color: var(--text-2) !important;
+  background: var(--divider-bg) !important;
+  box-shadow: var(--bubble-shadow) !important;
+  font-size: 12.5px !important; font-weight: 500 !important;
+}
+
+/* ---------- Bubbles ---------- */
+.message-row { margin-bottom: 4px !important; }
+.message-row + .message-row.user,
+.message-row.assistant + .message-row.assistant { margin-top: 0; }
+.message-row.user + .message-row.assistant,
+.message-row.assistant + .message-row.user { margin-top: 10px; }
+
+.message {
+  padding: 6px 9px 7px 10px !important;
+  border-radius: 8px !important;
+  font-size: 15px !important;
+  line-height: 1.38 !important;
+  box-shadow: var(--bubble-shadow) !important;
+}
+.assistant-message {
+  color: var(--text) !important;
+  background: var(--bubble-in) !important;
+  border-top-left-radius: 0 !important;
+}
+.user-message {
+  color: var(--bubble-out-text) !important;
+  background: var(--bubble-out) !important;
+  border-top-right-radius: 0 !important;
+}
+.assistant-message::before,
+.user-message::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 8px !important; height: 13px !important;
+}
+.assistant-message::before {
+  left: -8px !important; right: auto !important;
+  background: var(--bubble-in) !important;
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+.user-message::after {
+  right: -8px !important; left: auto !important;
+  background: var(--bubble-out) !important;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+/* Only the first bubble of a run keeps its tail */
+.message-row.assistant + .message-row.assistant .assistant-message::before,
+.message-row.user + .message-row.user .user-message::after { display: none !important; }
+.message-row.assistant + .message-row.assistant .assistant-message { border-top-left-radius: 8px !important; }
+.message-row.user + .message-row.user .user-message { border-top-right-radius: 8px !important; }
+
+/* Time + ticks inside the bubble, pinned to the bottom-right corner.
+   An invisible spacer at the end of the text reserves room for it, so short
+   messages sit on one line and long ones wrap above it (WhatsApp behaviour). */
+.message { padding: 6px 9px 8px 10px !important; }
+.message-text::after {
+  content: "";
+  display: inline-block;
+  width: var(--meta-space, 40px);
+  height: 1px;
+}
+.user-message { --meta-space: 60px; }
+.message .message-meta {
+  position: absolute !important;
+  right: 8px; bottom: 3px;
+  float: none; top: auto;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 3px !important;
+  color: var(--meta) !important;
+  font-size: 11px !important;
+  line-height: 15px;
+  white-space: nowrap;
+  user-select: none;
+}
+.user-message .message-meta { color: var(--meta-out) !important; }
+.message .message-meta--block {
+  position: static !important;
+  display: flex !important;
+  justify-content: flex-end;
+  margin: 6px -1px -4px 0 !important;
+}
+.delivery-check {
+  display: inline-grid !important;
+  padding: 0 !important;
+  color: var(--check) !important;
+  letter-spacing: 0 !important;
+}
+.delivery-check svg { width: 16px; height: 11px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Typing indicator ---------- */
+.typing-bubble { background: var(--bubble-in) !important; box-shadow: var(--bubble-shadow) !important; border-radius: 0 12px 12px 12px !important; }
+.typing-bubble span { background: var(--text-2) !important; }
+.typing-indicator small { color: var(--text-2) !important; }
+
+/* ---------- Quick replies (original look, themed) ---------- */
+.quick-label {
+  display: inline-block;
+  margin: 0 0 8px 2px !important;
+  padding: 3px 9px;
+  border-radius: 8px;
+  color: var(--text-2) !important;
+  background: var(--divider-bg);
+  box-shadow: var(--bubble-shadow);
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+.quick-question {
+  border: 1px solid var(--chip-border) !important;
+  color: var(--text) !important;
+  background: var(--chip-bg) !important;
+  box-shadow: 0 1px 2px rgba(11,20,26,.08) !important;
+  justify-content: space-between !important;
+  text-align: left !important;
+  font-weight: 650 !important;
+  border-radius: 11px !important;
+}
+.quick-question:hover { border-color: var(--chip-border-hover) !important; }
+.quick-question > span:last-child { position: static; color: var(--text-3) !important; }
+.quick-question--primary {
+  color: var(--orange) !important;
+  border-color: var(--orange-border) !important;
+  background: var(--orange-soft) !important;
+}
+.booking-action-button {
+  color: var(--orange) !important;
+  border: 1px solid var(--orange-border) !important;
+  background: var(--orange-soft) !important;
+  box-shadow: 0 1px 2px rgba(11,20,26,.08) !important;
+}
+
+/* ---------- Composer ---------- */
+.composer {
+  background: var(--composer-bg) !important;
+  border-top: 0 !important;
+  backdrop-filter: none !important;
+}
+.chat-form {
+  border: 0 !important;
+  background: var(--input-bg) !important;
+  box-shadow: none !important;
+}
+.chat-form:focus-within { box-shadow: none !important; }
+.chat-form textarea { color: var(--text) !important; }
+.chat-form textarea::placeholder { color: var(--text-2) !important; }
+.composer-foot { color: var(--text-2) !important; }
+.composer-foot a { color: var(--text-2) !important; }
+
+/* ---------- Loading ---------- */
+.conversation-loading-card {
+  color: var(--text-2) !important;
+  background: var(--divider-bg) !important;
+  border: 0 !important;
+  box-shadow: var(--bubble-shadow) !important;
+}
+.conversation-loading-dots span { background: var(--text-2) !important; }
+

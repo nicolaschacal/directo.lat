@@ -1,0 +1,17 @@
+{
+  "rewrites": [
+    { "source": "/api/crm/:action", "destination": "/api/crm?action=:action" },
+    { "source": "/", "destination": "/frontend/index.html" },
+    { "source": "/dashboard", "destination": "/frontend/dashboard.html" },
+    { "source": "/dashboard/", "destination": "/frontend/dashboard.html" },
+    { "source": "/css/:path*", "destination": "/frontend/css/:path*" },
+    { "source": "/js/:path*", "destination": "/frontend/js/:path*" },
+    { "source": "/assets/:path*", "destination": "/frontend/assets/:path*" }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/followups",
+      "schedule": "0 12 * * 1-5"
+    }
+  ]
+}
