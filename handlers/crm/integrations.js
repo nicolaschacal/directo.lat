@@ -6,6 +6,7 @@ const { query } = require("../../lib/db");
 const { requireManager } = require("../../lib/auth");
 const {
   SECRET_FIELDS,
+  DEFAULT_PROVIDER,
   DEFAULT_MODEL,
   DEFAULT_FALLBACK_MODEL,
   encrypt,
@@ -14,6 +15,7 @@ const {
   getRuntimeConfig
 } = require("../../lib/config");
 const { buildTransport } = require("../../lib/email");
+const { callAIModel, PROVIDER_DEFAULTS } = require("../../lib/gemini");
 
 const SECTIONS = ["ai", "email"];
 
@@ -31,12 +33,12 @@ async function publicView() {
   const config = await getRuntimeConfig({ fresh: true });
   return {
     ai: {
-      configured: Boolean(config.ai.apiKey),
-      source: config.ai.sources.apiKey,
-      apiKeyHint: hint(config.ai.apiKey),
-      model: config.ai.model,
-      fallbackModel: config.ai.fallbackModel,
-      defaults: { model: DEFAULT_MODEL, fallbackModel: DEFAULT_FALLBACK_MODEL }
+      configured: Boolean(config.ai.apiKey), source: config.ai.sources.apiKey,
+      provider: config.ai.provider || DEFAULT_PROVIDER, apiKeyHint: hint(config.ai.apiKey), model: config.ai.model,
+      baseUrl: config.ai.baseUrl || "", fallbackProvider: config.ai.fallbackProvider || "",
+      fallbackApiKeyHint: hint(config.ai.fallbackApiKey), fallbackBaseUrl: config.ai.fallbackBaseUrl || "", fallbackModel: config.ai.fallbackModel,
+      providers: Object.entries(PROVIDER_DEFAULTS).map(([id, item]) => ({ id, label: item.label, model: item.model })),
+      defaults: { provider: DEFAULT_PROVIDER, model: DEFAULT_MODEL, fallbackModel: DEFAULT_FALLBACK_MODEL }
     },
     email: {
       configured: Boolean(config.email.host && config.email.user && config.email.password),
@@ -88,10 +90,20 @@ function sanitizeSection(section, values, current) {
   const next = { ...current };
 
   if (section === "ai") {
+    const provider = clean(values.provider || "gemini", 30);
+    if (!PROVIDER_DEFAULTS[provider]) throw new Error("Proveedor principal no válido.");
+    next.provider = provider;
     if (values.apiKey) next.apiKey = encrypt(clean(values.apiKey, 400));
     if (values.clearApiKey) delete next.apiKey;
-    next.model = clean(values.model, 120).replace(/[^a-z0-9.\-]/gi, "") || undefined;
-    next.fallbackModel = clean(values.fallbackModel, 120).replace(/[^a-z0-9.\-]/gi, "") || undefined;
+    next.model = clean(values.model, 160) || PROVIDER_DEFAULTS[provider].model || undefined;
+    next.baseUrl = clean(values.baseUrl, 300).replace(/\\/$/, "");
+    const fallbackProvider = clean(values.fallbackProvider, 30);
+    if (fallbackProvider && !PROVIDER_DEFAULTS[fallbackProvider]) throw new Error("Proveedor secundario no válido.");
+    next.fallbackProvider = fallbackProvider;
+    if (values.fallbackApiKey) next.fallbackApiKey = encrypt(clean(values.fallbackApiKey, 400));
+    if (values.clearFallbackApiKey) delete next.fallbackApiKey;
+    next.fallbackModel = clean(values.fallbackModel, 160) || (fallbackProvider ? PROVIDER_DEFAULTS[fallbackProvider].model : "") || undefined;
+    next.fallbackBaseUrl = clean(values.fallbackBaseUrl, 300).replace(/\\/$/, "");
   }
 
   if (section === "email") {
@@ -118,7 +130,9 @@ function sanitizeSection(section, values, current) {
 async function effectiveFor(section, values = {}) {
   const config = await getRuntimeConfig({ fresh: true });
   if (section === "ai") {
-    return { apiKey: clean(values.apiKey, 400) || config.ai.apiKey, model: clean(values.model, 120) || config.ai.model };
+    const provider = clean(values.provider || config.ai.provider || "gemini", 30);
+    const fallbackProvider = clean(values.fallbackProvider ?? config.ai.fallbackProvider, 30);
+    return { provider, apiKey: clean(values.apiKey, 400) || config.ai.apiKey, model: clean(values.model, 160) || config.ai.model, baseUrl: clean(values.baseUrl, 300) || config.ai.baseUrl, fallbackProvider, fallbackApiKey: clean(values.fallbackApiKey, 400) || config.ai.fallbackApiKey, fallbackModel: clean(values.fallbackModel, 160) || config.ai.fallbackModel, fallbackBaseUrl: clean(values.fallbackBaseUrl, 300) || config.ai.fallbackBaseUrl };
   }
   if (section === "email") {
     return {
@@ -137,28 +151,9 @@ async function runTest(section, values, manager) {
   const settings = await effectiveFor(section, values);
 
   if (section === "ai") {
-    if (!settings.apiKey) throw new Error("Ingresa una clave de API.");
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 10000);
-    try {
-      const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(settings.model)}:generateContent`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "x-goog-api-key": settings.apiKey },
-          body: JSON.stringify({ contents: [{ role: "user", parts: [{ text: "Respondé solo: OK" }] }], generationConfig: { maxOutputTokens: 5 } }),
-          signal: controller.signal
-        }
-      );
-      if (!response.ok) {
-        const data = await response.json().catch(() => ({}));
-        const reason = data?.error?.message || `HTTP ${response.status}`;
-        throw new Error(`La IA rechazó la conexión: ${reason}`);
-      }
-    } finally {
-      clearTimeout(timer);
-    }
-    return `Conexión correcta con ${settings.model}.`;
+    if (!settings.apiKey) throw new Error("Ingresa la clave de API del proveedor principal.");
+    await callAIModel({ provider: settings.provider, apiKey: settings.apiKey, model: settings.model, baseUrl: settings.baseUrl, contents: [{ role: "user", parts: [{ text: "Respondé solo: OK" }] }], timeoutMs: 10000, generationConfig: { maxOutputTokens: 5, temperature: 0 } });
+    return `Conexión correcta con ${PROVIDER_DEFAULTS[settings.provider]?.label || settings.provider} · ${settings.model}.`;
   }
 
   if (section === "email") {
