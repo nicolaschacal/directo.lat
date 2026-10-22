@@ -1505,6 +1505,23 @@ async function renderIntegrationsTab(panel) {
       </div>
     </form>`;
 
+  const aiForm = $('[data-section="ai"]', panel);
+  const modelDefaults = Object.fromEntries((ai.providers || []).map((p) => [p.id, p.model]));
+  const primaryProvider = aiForm.elements.provider;
+  primaryProvider.dataset.previousProvider = ai.provider || "gemini";
+  primaryProvider.addEventListener("change", () => {
+    const model = aiForm.elements.model;
+    if (!model.value || model.value === modelDefaults[primaryProvider.dataset.previousProvider]) model.value = modelDefaults[primaryProvider.value] || "";
+    primaryProvider.dataset.previousProvider = primaryProvider.value;
+  });
+  const fallbackProvider = aiForm.elements.fallbackProvider;
+  fallbackProvider.dataset.previousProvider = ai.fallbackProvider || "";
+  fallbackProvider.addEventListener("change", () => {
+    const model = aiForm.elements.fallbackModel;
+    if (!model.value || model.value === modelDefaults[fallbackProvider.dataset.previousProvider]) model.value = modelDefaults[fallbackProvider.value] || "";
+    fallbackProvider.dataset.previousProvider = fallbackProvider.value;
+  });
+
   const emailForm = $('[data-section="email"]', panel);
   emailForm.preset.addEventListener("change", () => {
     const preset = EMAIL_PRESETS[emailForm.preset.value];
