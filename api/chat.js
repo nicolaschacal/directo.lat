@@ -4,7 +4,7 @@ const { getProfile } = require("../lib/profile");
 const { loadVisitorMessages, persistVisitorMessage } = require("../lib/visitor-session");
 const { getCaptureSettings, detectPhone, captureLead, notifyCapture } = require("../lib/capture");
 const { analyzeLead } = require("../lib/lead-ai");
-const { normalizeText, askGeminiWithFallback, delay } = require("../lib/gemini");
+const { normalizeText, askAIWithFallback, delay } = require("../lib/gemini");
 const { query } = require("../lib/db");
 
 function buildSystemInstruction(profile) {
@@ -210,15 +210,13 @@ SITUACIÓN DE LA PERSONA
 ${where}
 Mensajes de la persona en esta conversación: ${userTurns + 1}.${capturedContext}`;
 
-      responseText = await askGeminiWithFallback({
-        apiKey: ai.apiKey,
-        model: ai.model,
-        fallbackModel: ai.fallbackModel,
+      responseText = await askAIWithFallback({
+        ai,
         contents: [...safeHistory, { role: "user", parts: [{ text }] }],
         systemInstruction
       });
     } catch (error) {
-      console.error("Gemini no respondió:", error?.status, error?.message);
+      console.error("El proveedor de IA no respondió:", error?.status, error?.message);
       return respondWithFallback(knowledgeItems);
     }
 
@@ -233,7 +231,7 @@ Mensajes de la persona en esta conversación: ${userTurns + 1}.${capturedContext
     return res.status(200).json({
       success: true,
       response: resolved.text,
-      source: "gemini",
+      source: "ai",
       action: resolved.action,
       openContact: Boolean(resolved.openContact)
     });

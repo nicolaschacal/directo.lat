@@ -1459,26 +1459,22 @@ async function renderIntegrationsTab(panel) {
 
   panel.innerHTML = `
     <form class="card" data-section="ai">
-      <div class="card-head">
-        <div class="integration-head">
-          <span class="integration-icon">${icon("sparkle")}</span>
-          <div><h2>Inteligencia artificial</h2><p>Google Gemini responde las consultas del chat.</p></div>
-        </div>
-        ${sourceLabel(ai)}
-      </div>
+      <div class="card-head"><div class="integration-head"><span class="integration-icon">${icon("sparkle")}</span><div><h2>Inteligencia artificial</h2><p>Elige qué modelo responde el chat y analiza los contactos.</p></div></div>${sourceLabel(ai)}</div>
       <div class="card-body">
-        <div class="callout">Crea una clave gratis en <a href="https://aistudio.google.com/apikey" target="_blank" rel="noreferrer">Google AI Studio</a> → “Create API key” y pégala aquí.</div>
+        <div class="callout">Usa tu propia API key de Gemini, OpenAI/ChatGPT, Anthropic/Claude o cualquier proveedor compatible con OpenAI. Las claves se guardan cifradas.</div>
         <div class="form-grid">
-          <label class="field span-2"><span>Clave de API</span><input name="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="${ai.configured ? `Guardada (${esc(ai.apiKeyHint)}). Escribe una nueva para reemplazarla.` : "AIza…"}"></label>
-          <label class="field"><span>Modelo principal</span><input name="model" class="mono" value="${esc(ai.model)}" placeholder="${esc(ai.defaults.model)}"></label>
-          <label class="field"><span>Modelo de respaldo</span><input name="fallbackModel" class="mono" value="${esc(ai.fallbackModel)}" placeholder="${esc(ai.defaults.fallbackModel)}"><small>Se usa si el principal tarda o falla.</small></label>
+          <label class="field"><span>Proveedor principal</span><select name="provider">${(ai.providers || []).map((p) => `<option value="${p.id}" ${p.id === ai.provider ? "selected" : ""}>${esc(p.label)}</option>`).join("")}</select></label>
+          <label class="field"><span>Modelo principal</span><input name="model" class="mono" value="${esc(ai.model)}" placeholder="gpt-4o-mini"></label>
+          <label class="field span-2"><span>API key principal</span><input name="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="${ai.configured ? `Guardada (${esc(ai.apiKeyHint)}). Escribe una nueva para reemplazarla.` : "Pega tu API key"}"></label>
+          <label class="field span-2"><span>Base URL principal (para proveedores compatibles/custom)</span><input name="baseUrl" class="mono" value="${esc(ai.baseUrl || "")}" placeholder="https://api.ejemplo.com/v1"></label>
+          <label class="field"><span>Proveedor secundario (opcional)</span><select name="fallbackProvider"><option value="" ${!ai.fallbackProvider ? "selected" : ""}>Desactivado</option>${(ai.providers || []).map((p) => `<option value="${p.id}" ${p.id === ai.fallbackProvider ? "selected" : ""}>${esc(p.label)}</option>`).join("")}</select></label>
+          <label class="field"><span>Modelo secundario</span><input name="fallbackModel" class="mono" value="${esc(ai.fallbackModel || "")}" placeholder="Modelo de respaldo"></label>
+          <label class="field span-2"><span>API key secundaria</span><input name="fallbackApiKey" type="password" autocomplete="off" spellcheck="false" placeholder="${ai.fallbackApiKeyHint ? `Guardada (${esc(ai.fallbackApiKeyHint)}). Escribe una nueva para reemplazarla.` : "Opcional; necesaria para activar el respaldo"}"></label>
+          <label class="field span-2"><span>Base URL secundaria (si corresponde)</span><input name="fallbackBaseUrl" class="mono" value="${esc(ai.fallbackBaseUrl || "")}" placeholder="https://api.ejemplo.com/v1"></label>
         </div>
+        <p class="muted small">El respaldo se usa si el principal falla o tarda. Claude usa su API nativa; los proveedores personalizados deben ser compatibles con OpenAI Chat Completions.</p>
       </div>
-      <div class="card-foot form-actions">
-        <span class="inline-result" data-result></span>
-        <button type="button" class="btn btn-ghost" data-test>Probar conexión</button>
-        <button type="submit" class="btn btn-primary">Guardar</button>
-      </div>
+      <div class="card-foot form-actions"><span class="inline-result" data-result></span><button type="button" class="btn btn-ghost" data-test>Probar conexión</button><button type="submit" class="btn btn-primary">Guardar</button></div>
     </form>
 
     <form class="card" data-section="email">
@@ -1508,6 +1504,23 @@ async function renderIntegrationsTab(panel) {
         <button type="submit" class="btn btn-primary">Guardar</button>
       </div>
     </form>`;
+
+  const aiForm = $('[data-section="ai"]', panel);
+  const modelDefaults = Object.fromEntries((ai.providers || []).map((p) => [p.id, p.model]));
+  const primaryProvider = aiForm.elements.provider;
+  primaryProvider.dataset.previousProvider = ai.provider || "gemini";
+  primaryProvider.addEventListener("change", () => {
+    const model = aiForm.elements.model;
+    if (!model.value || model.value === modelDefaults[primaryProvider.dataset.previousProvider]) model.value = modelDefaults[primaryProvider.value] || "";
+    primaryProvider.dataset.previousProvider = primaryProvider.value;
+  });
+  const fallbackProvider = aiForm.elements.fallbackProvider;
+  fallbackProvider.dataset.previousProvider = ai.fallbackProvider || "";
+  fallbackProvider.addEventListener("change", () => {
+    const model = aiForm.elements.fallbackModel;
+    if (!model.value || model.value === modelDefaults[fallbackProvider.dataset.previousProvider]) model.value = modelDefaults[fallbackProvider.value] || "";
+    fallbackProvider.dataset.previousProvider = fallbackProvider.value;
+  });
 
   const emailForm = $('[data-section="email"]', panel);
   emailForm.preset.addEventListener("change", () => {
