@@ -103,7 +103,8 @@
     if(initial?.state){ refreshMunicipalities(initial.municipality?.id||''); if(initial.municipality) refreshParishes(initial.parish?.id||''); }
 
     form.addEventListener('submit',async e=>{
-      e.preventDefault(); const s=hierarchy.find(x=>x.name===state.value); const m=s?.municipalities.find(x=>x.id===municipality.value); const p=m?.parishes.find(x=>x.id===parish.value); if(!s||!m||!p) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      const s=hierarchy.find(x=>x.name===state.value); const m=s?.municipalities.find(x=>x.id===municipality.value); const p=m?.parishes.find(x=>x.id===parish.value); if(!s||!m||!p) return;
       save.disabled=true; save.textContent='Guardando…';
       try {
         const localityText=`${m.name} · ${p.name}`;
@@ -111,7 +112,7 @@
         const data=await r.json(); if(!r.ok||!data.success) throw new Error(data.message||'No se pudo guardar.');
         chosenLocation={state:s.name,municipality:m.name,parish:p.name,localityText,zoneId:null,label:`${m.name} · ${p.name}, ${s.name}`}; showChosenLocation();
       } catch(e) { console.error('Localidad:',e); } finally { save.disabled=false; save.textContent='Listo'; }
-    });
+    }, true);
     form.dataset.cascadeReady='1';
   }
 
