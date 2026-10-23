@@ -9,5 +9,6 @@
 
   load('/js/whatsapp-business-profile-core.js')
     .then(() => load('/js/location-cascade.js'))
+    .then(() => load('/js/ui-polish.js'))
     .catch((error) => console.error('No se pudo cargar la interfaz:', error));
 })();
