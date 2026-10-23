@@ -53,13 +53,17 @@ app.use((req, res) => {
   res.status(404).json({ success: false, message: "Ruta no encontrada." });
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`Panel escuchando en puerto ${PORT}`);
+module.exports = app;
 
-  if (process.env.DATABASE_URL) {
-    const { processReminders } = require("../lib/reminders");
-    const run = () => processReminders().catch((error) => console.error("Reminder worker:", error));
-    setTimeout(run, 15000);
-    setInterval(run, 60 * 60 * 1000);
-  }
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Panel escuchando en puerto ${PORT}`);
+
+    if (process.env.DATABASE_URL) {
+      const { processReminders } = require("../lib/reminders");
+      const run = () => processReminders().catch((error) => console.error("Reminder worker:", error));
+      setTimeout(run, 15000);
+      setInterval(run, 60 * 60 * 1000);
+    }
+  });
+}
